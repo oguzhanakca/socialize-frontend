@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
 
@@ -9,9 +8,9 @@ function NavBar() {
   return (
     <Navbar expand="md" className={styles.NavBar} id="navbar">
       <Container>
-        <Navbar.Brand className={styles.Brand} href="#home">
+        <NavLink className={styles.Brand} to="/">
           Socialize
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="text-end">
           <Nav className="ms-auto">
@@ -19,25 +18,18 @@ function NavBar() {
               className={({ isActive }) =>
                 styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
               }
-              to="/"
+              to="/signin"
             >
-              Home
+              <i class="fa-solid fa-right-to-bracket"></i> Sign In
             </NavLink>
             <NavLink
               className={({ isActive }) =>
                 styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
               }
-              to="/about"
+              to="/signup"
             >
-              About
+              <i class="fa-solid fa-user-plus"></i> Sign Up
             </NavLink>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavLink to="/profile">Action</NavLink>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

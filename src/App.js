@@ -2,7 +2,8 @@ import styles from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import About from "./components/About";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 import { Container } from "react-bootstrap";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Container>
     </div>
