@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import SignUpForm from "./pages/auth/SignUpForm";
 import { Container } from "react-bootstrap";
 import "./api/axiosDefaults";
+import SignInForm from "./pages/auth/SignInForm";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/signin" element={<h1>Sign In</h1>} />
+          <Route path="/signin" element={<SignInForm />} />
           <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>
       </Container>

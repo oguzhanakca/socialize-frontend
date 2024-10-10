@@ -4,25 +4,24 @@ import styles from "../../styles/SignInUpForm.module.css";
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 
-const SignUpForm = () => {
-  const [signUpData, setSignUpData] = useState({
+const SignInForm = () => {
+  const [signInData, setSignInData] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = signUpData;
+  const { username, password } = signInData;
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const handleChange = (e) => {
-    setSignUpData({
-      ...signUpData,
+    setSignInData({
+      ...signInData,
       [e.target.name]: e.target.value,
     });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
+      await axios.post("/dj-rest-auth/login/", signInData);
       navigate("/signin");
     } catch (err) {
       setErrors(err.response?.data);
@@ -33,7 +32,7 @@ const SignUpForm = () => {
     <Row className={styles.Row}>
       <Col md={10} lg={8} className="my-auto mx-auto">
         <Container className="p-4">
-          <h1 className={styles.Header}>sign up</h1>
+          <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
               <Form.Label className="d-none">username</Form.Label>
@@ -51,41 +50,25 @@ const SignUpForm = () => {
                 {msg}
               </Alert>
             ))}
-            <Form.Group className="mb-3" controlId="password1">
+            <Form.Group className="mb-3" controlId="password">
               <Form.Label className="d-none">password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
-                name="password1"
+                name="password"
                 className={styles.Input}
-                value={password1}
+                value={password}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password1?.map((msg, index) => (
-              <Alert variant="warning" key={index} className={styles.Alert}>
-                {msg}
-              </Alert>
-            ))}
-            <Form.Group className="mb-3" controlId="password2">
-              <Form.Label className="d-none">confirm password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                className={styles.Input}
-                value={password2}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            {errors.password2?.map((msg, index) => (
+            {errors.password?.map((msg, index) => (
               <Alert variant="warning" key={index} className={styles.Alert}>
                 {msg}
               </Alert>
             ))}
             <Col className="text-center">
               <Button type="submit" className={`${styles.Button}`}>
-                Sign Up
+                Sign In
               </Button>
             </Col>
             <Col>
@@ -98,8 +81,8 @@ const SignUpForm = () => {
           </Form>
         </Container>
         <Container>
-          <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
+          <Link className={styles.Link} to="/signup">
+            Don't have an account yet? <span>Sign up</span>
           </Link>
         </Container>
       </Col>
@@ -107,4 +90,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
