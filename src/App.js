@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/signin" element={<h1>Sign In</h1>} />
           <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>
       </Container>

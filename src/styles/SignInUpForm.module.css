@@ -38,4 +38,17 @@
 
 .Button {
     width: 100%;
+    border-radius: 20px;
+    background-color: #4058e2;
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+}
+
+.Button:hover {
+    background-color: #1a3bf3;
+}
+
+.Alert {
+    padding: 10px;
+    text-align: center;
 }
