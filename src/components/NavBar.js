@@ -7,7 +7,7 @@ import styles from "../styles/NavBar.module.css";
 function NavBar() {
   return (
     <Navbar expand="md" className={styles.NavBar} id="navbar">
-      <Container>
+      <Container fluid>
         <NavLink className={styles.Brand} to="/">
           Socialize
         </NavLink>

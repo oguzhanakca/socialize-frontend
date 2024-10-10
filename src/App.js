@@ -2,9 +2,9 @@ import styles from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import SignUpForm from "./pages/auth/SignUpForm";
 import { Container } from "react-bootstrap";
+import "./api/axiosDefaults";
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUpForm />} />
+          <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>
       </Container>
     </div>

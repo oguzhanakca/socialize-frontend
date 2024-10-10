@@ -1,7 +1,7 @@
 .NavBar {
     text-decoration: none;
-    color: #0D8571;
-    background-color: #d9d9d9;
+    color: #ff5757;
+    background-color: #555358;
 }
 
 .Brand {
@@ -13,7 +13,7 @@
 }
 
 .NavLinkActive {
-    color: #0D1D85;
+    color: #f09b56;
 }
 
 .NavLink {
