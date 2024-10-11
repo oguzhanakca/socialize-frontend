@@ -3,11 +3,71 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
 
 function NavBar() {
   const currentUser = useCurrentUser();
-  const loggedInIcons = <>{currentUser?.username}</>;
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignout = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const loggedInIcons = (
+    <>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/posts/create"
+      >
+        <i class="fa-solid fa-square-plus"></i> Add Post
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/notifications"
+      >
+        <i class="fa-solid fa-bell"></i> Notifications
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/liked"
+      >
+        <i class="fa-solid fa-heart"></i> Liked
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <Avatar src={currentUser?.profile_image} text="Profile" height={35} />
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/"
+        onClick={handleSignout}
+      >
+        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+      </NavLink>
+    </>
+  );
   const loggedOutIcons = (
     <>
       <NavLink
@@ -37,14 +97,6 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="text-end">
           <Nav className="ms-auto">
-            <NavLink
-              className={({ isActive }) =>
-                styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-              }
-              to="/"
-            >
-              <i class="fa-solid fa-right-to-bracket"></i> Home
-            </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
