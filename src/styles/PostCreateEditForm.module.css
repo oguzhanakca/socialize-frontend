@@ -1,0 +1,19 @@
+.Container {
+    min-height: 343px;
+}
+
+.ChangeButton {
+    background-color: rgb(33, 85, 230);
+    padding: 5px 7px;
+    border-radius: 5px;
+    color: aliceblue;
+}
+
+.ChangeButton:hover {
+    background-color: blue;
+}
+
+.Alert {
+    padding: 5px;
+    margin-top: 5px;
+}

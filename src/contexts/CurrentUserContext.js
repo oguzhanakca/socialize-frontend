@@ -24,7 +24,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   useEffect(() => {
     handleMount();
-  }, [currentUser]);
+  }, []);
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
