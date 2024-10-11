@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -12,17 +13,58 @@ const Post = (props) => {
     profile_id,
     profile_image,
     comments_count,
-    likes_count,
+    postlikes_count,
     like_id,
     title,
     content,
     image_url,
     updated_at,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/postlikes/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                postlikes_count: post.postlikes_count + 1,
+                like_id: data.id,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/postlikes/${like_id}`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                postlikes_count: post.postlikes_count - 1,
+                like_id: null,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -48,25 +90,25 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-              <i class="fa-solid fa-heart"></i>
+              <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
-              <i class="fa-solid fa-heart"></i>
+            <span onClick={handleUnlike}>
+              <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
-              <i class="fa-regular fa-heart"></i>
+            <span onClick={handleLike}>
+              <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You must log in to like posts.</Tooltip>}
+              overlay={<Tooltip>Log in to like posts!</Tooltip>}
             >
-              <i class="fa-regular fa-heart"></i>
+              <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {likes_count}
+          {postlikes_count}
           <Link to={`/posts/${id}`}>
             <i class="fa-regular fa-comment"></i>
           </Link>
