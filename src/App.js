@@ -1,21 +1,48 @@
 import styles from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import Home from "./components/Home";
 import SignUpForm from "./pages/auth/SignUpForm";
 import { Container } from "react-bootstrap";
 import "./api/axiosDefaults";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+import PostsPage from "./pages/posts/PostsPage";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Container>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <PostsPage message="No results found. Adjust the search keyword." />
+            }
+          />
+          <Route
+            path="/feed"
+            element={
+              <PostsPage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__profile=${profile_id}`}
+              />
+            }
+          />
+          <Route
+            path="/liked"
+            element={
+              <PostsPage
+                message="No results found. Adjust the search keyword or like a post."
+                filter={`post_likes__owner__profile=${profile_id}&orderings=-likes__created_at&`}
+              />
+            }
+          />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/signin" element={<SignInForm />} />
           <Route path="/posts/create" element={<PostCreateForm />} />
