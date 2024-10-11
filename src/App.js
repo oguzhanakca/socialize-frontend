@@ -11,6 +11,9 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostsPage from "./pages/posts/PostsPage";
 import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -51,6 +54,15 @@ function App() {
           <Route path="/posts/:id" element={<PostPage />} />
           <Route path="/posts/:id/edit" element={<PostEditForm />} />
           <Route path="/profiles/:id" element={<ProfilePage />} />
+          <Route
+            path="/profiles/:id/edit/username"
+            element={<UsernameForm />}
+          />
+          <Route
+            path="/profiles/:id/edit/password"
+            element={<UserPasswordForm />}
+          />
+          <Route path="/profiles/:id/edit/" element={<ProfileEditForm />} />
 
           <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>

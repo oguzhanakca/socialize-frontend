@@ -21,6 +21,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -56,6 +57,7 @@ function ProfilePage() {
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
+        {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
