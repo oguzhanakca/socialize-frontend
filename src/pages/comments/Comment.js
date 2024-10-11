@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import axios from "axios";
+import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
   const {
@@ -19,6 +20,7 @@ const Comment = (props) => {
   } = props;
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -51,12 +53,26 @@ const Comment = (props) => {
               <span className={styles.Owner}>{owner}</span>
               <span className={styles.Date}>{updated_at}</span>
             </div>
-            <p>{content}</p>
+            {showEditForm ? (
+              <CommentEditForm
+                id={id}
+                profile_id={profile_id}
+                content={content}
+                profileImage={profile_image}
+                setComments={setComments}
+                setShowEditForm={setShowEditForm}
+              />
+            ) : (
+              <p>{content}</p>
+            )}
           </div>
         </div>
         <div>
-          {is_owner && (
-            <MoreDropdown handleDelete={handleDelete} handleEdit={() => {}} />
+          {is_owner && !showEditForm && (
+            <MoreDropdown
+              handleDelete={handleDelete}
+              handleEdit={() => setShowEditForm(true)}
+            />
           )}
         </div>
       </div>
