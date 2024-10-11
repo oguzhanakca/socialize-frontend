@@ -9,10 +9,13 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignout = async () => {
     try {
@@ -89,12 +92,21 @@ function NavBar() {
     </>
   );
   return (
-    <Navbar expand="md" className={styles.NavBar} id="navbar">
+    <Navbar
+      expand="md"
+      expanded={expanded}
+      className={styles.NavBar}
+      id="navbar"
+    >
       <Container fluid>
         <NavLink className={styles.Brand} to="/">
           Socialize
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav" className="text-end">
           <Nav className="ms-auto">
             {currentUser ? loggedInIcons : loggedOutIcons}
