@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
-import styles from "../../styles/PostCreateEditForm.module.css";
+import styles from "../../styles/CreateEditForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";

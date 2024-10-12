@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
+import styles from "../../styles/CreateEditForm.module.css";
 
 import { useNavigate, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -31,9 +31,9 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, image_url, is_owner } = data;
         console.log(data);
 
+        const { title, content, image_url, is_owner } = data;
         is_owner ? setPostData({ title, content, image_url }) : navigate("/");
       } catch (err) {
         console.log(err);
@@ -73,6 +73,8 @@ function PostEditForm() {
 
     try {
       await axiosReq.put(`/posts/${id}`, formData);
+      console.log(formData);
+
       navigate(`/posts/${id}`);
     } catch (err) {
       console.log(err);
@@ -153,7 +155,7 @@ function PostEditForm() {
                   ref={imageInput}
                 />
               </Form.Group>
-              {errors?.image_url?.map((message, idx) => (
+              {errors?.image?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>

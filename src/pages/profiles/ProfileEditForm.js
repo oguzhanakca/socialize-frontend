@@ -14,6 +14,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/CreateEditForm.module.css";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -23,11 +24,10 @@ const ProfileEditForm = () => {
   const imageFile = useRef();
 
   const [profileData, setProfileData] = useState({
-    name: "",
     bio: "",
-    image: "",
+    image_url: "",
   });
-  const { name, bio, image } = profileData;
+  const { bio, image_url } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -36,8 +36,10 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
-          const { name, bio, image } = data;
-          setProfileData({ name, bio, image });
+          const { bio, image_url } = data;
+          console.log(data);
+
+          setProfileData({ bio, image_url });
         } catch (err) {
           console.log(err);
           navigate("/");
@@ -57,10 +59,18 @@ const ProfileEditForm = () => {
     });
   };
 
+  const handleChangeImage = (e) => {
+    if (e.target.files.length) {
+      setProfileData({
+        ...profileData,
+        image_url: URL.createObjectURL(e.target.files[0]),
+      });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
     formData.append("bio", bio);
 
     if (imageFile?.current?.files[0]) {
@@ -71,11 +81,13 @@ const ProfileEditForm = () => {
       const { data } = await axiosReq.put(`/profiles/${id}`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
-        profile_image: data.image,
+        profile_image: data.image_url,
       }));
       navigate(-1);
     } catch (err) {
-      console.log(err);
+      console.log(formData);
+
+      console.log(err.response?.data);
       setErrors(err.response?.data);
     }
   };
@@ -83,7 +95,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label className={styles.Label}>Bio</Form.Label>
         <Form.Control
           as="textarea"
           value={bio}
@@ -98,62 +110,68 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-      <Button className="btn btn-warning" onClick={() => navigate(-1)}>
-        cancel
+      <Button
+        className={styles.Button}
+        variant="danger"
+        onClick={() => navigate(-1)}
+      >
+        Cancel
       </Button>
-      <Button className="btn btn-success" type="submit">
-        save
+      <Button className={styles.Button} variant="success" type="submit">
+        Save
       </Button>
     </>
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container>
-            <Form.Group>
-              {image && (
-                <figure>
-                  <Image src={image} fluid />
-                </figure>
-              )}
-              {errors?.image?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              <div>
-                <Form.Label
-                  className="btn btn-secondary"
-                  htmlFor="image-upload"
-                >
-                  Change the image
-                </Form.Label>
-              </div>
-              <Form.Control
-                type="file"
-                id="image-upload"
-                ref={imageFile}
-                accept="image/*"
-                onChange={(e) => {
-                  if (e.target.files.length) {
-                    setProfileData({
-                      ...profileData,
-                      image: URL.createObjectURL(e.target.files[0]),
-                    });
-                  }
-                }}
-              />
-            </Form.Group>
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
-          <Container>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+    <Container>
+      <div>
+        <h1 className={styles.Header}>Edit Profile</h1>
+      </div>
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
+            <Container className={`d-flex flex-column justify-content-center`}>
+              <Form.Group className="text-center">
+                {image_url && (
+                  <figure>
+                    <Image src={image_url} fluid rounded />
+                  </figure>
+                )}
+                {errors?.image_url?.map((message, idx) => (
+                  <Alert variant="warning" key={idx}>
+                    {message}
+                  </Alert>
+                ))}
+                <div>
+                  <Form.Label
+                    className="btn btn-secondary"
+                    htmlFor="image-upload"
+                  >
+                    Change the image
+                  </Form.Label>
+                </div>
+                <Form.Control
+                  type="file"
+                  id="image-upload"
+                  ref={imageFile}
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                />
+              </Form.Group>
+              <div className="d-md-none">{textFields}</div>
+            </Container>
+          </Col>
+          <Col
+            md={5}
+            lg={6}
+            className="d-none d-md-block p-0 p-md-2 text-center mx-auto"
+          >
+            <Container>{textFields}</Container>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
   );
 };
 
