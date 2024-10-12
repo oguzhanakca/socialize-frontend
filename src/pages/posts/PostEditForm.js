@@ -9,7 +9,6 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
 
 import { useNavigate, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -20,9 +19,9 @@ function PostEditForm() {
   const [postData, setPostData] = useState({
     title: "",
     content: "",
-    image: "",
+    image_url: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image_url } = postData;
 
   const imageInput = useRef(null);
   const navigate = useNavigate();
@@ -32,10 +31,10 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, image_url, is_owner } = data;
         console.log(data);
 
-        is_owner ? setPostData({ title, content, image }) : navigate("/");
+        is_owner ? setPostData({ title, content, image_url }) : navigate("/");
       } catch (err) {
         console.log(err);
       }
@@ -53,10 +52,10 @@ function PostEditForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(image_url);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        image_url: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
@@ -86,7 +85,7 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label className={styles.Label}>Post Title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -94,14 +93,13 @@ function PostEditForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
+      {errors?.title?.map((msg, index) => (
+        <Alert className={styles.Alert} variant="warning" key={index}>
+          {msg}
         </Alert>
       ))}
-
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label className={styles.Label}>Post Content</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -110,60 +108,66 @@ function PostEditForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
+      {errors?.content?.map((msg, index) => (
+        <Alert className={styles.Alert} variant="warning" key={index}>
+          {msg}
         </Alert>
       ))}
-
-      <Button className="btn btn-primary" onClick={() => navigate(-1)}>
-        cancel
+      <Button
+        className={styles.Button}
+        variant="danger"
+        onClick={() => navigate(-1)}
+      >
+        Cancel
       </Button>
-      <Button className="btn btn-primary" type="submit">
-        save
+      <Button className={styles.Button} variant="success" type="submit">
+        Edit
       </Button>
     </div>
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
-            <Form.Group className="text-center">
-              <figure>
-                <Image className={appStyles.Image} src={image} rounded />
-              </figure>
-              <div>
-                <Form.Label className="btn" htmlFor="image-upload">
-                  Change the image
-                </Form.Label>
-              </div>
+    <Container>
+      <div>
+        <h1 className={styles.Header}>Edit Post</h1>
+      </div>
+      <Form onSubmit={handleSubmit}>
+        <Row className={styles.Form}>
+          <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+            <Container className={`d-flex flex-column justify-content-center`}>
+              <Form.Group className="text-center">
+                <figure>
+                  <Image src={image_url} rounded fluid />
+                </figure>
+                <div>
+                  <Form.Label className="btn" htmlFor="image-upload">
+                    Change the image
+                  </Form.Label>
+                </div>
 
-              <Form.Control
-                type="file"
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-            </Form.Group>
-            {errors?.image?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+                <Form.Control
+                  type="file"
+                  id="image-upload"
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                  ref={imageInput}
+                />
+              </Form.Group>
+              {errors?.image_url?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
 
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+              <div className="d-md-none">{textFields}</div>
+            </Container>
+          </Col>
+          <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+            <Container>{textFields}</Container>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
   );
 }
 

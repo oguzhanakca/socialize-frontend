@@ -41,6 +41,7 @@ function ProfilePage() {
             axiosReq.get(`/profiles/${id}`),
             axiosReq.get(`/posts/?owner_profile=${id}`),
           ]);
+
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -101,7 +102,7 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        <Col className="p-3">Profile content</Col>
+        <Col className="p-3">{profile?.bio}</Col>
       </Row>
     </>
   );

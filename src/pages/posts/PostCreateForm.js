@@ -92,7 +92,7 @@ function PostCreateForm() {
           {msg}
         </Alert>
       ))}
-      <Button className={`${styles.SubmitButton}`} type="submit">
+      <Button className={styles.Button} variant="success" type="submit">
         Post
       </Button>
     </div>
@@ -111,12 +111,7 @@ function PostCreateForm() {
                 {image ? (
                   <>
                     <figure>
-                      <Image
-                        src={image}
-                        rounded
-                        className={styles.Image}
-                        fluid
-                      />
+                      <Image src={image} rounded fluid />
                     </figure>
                     <div>
                       <Form.Label
