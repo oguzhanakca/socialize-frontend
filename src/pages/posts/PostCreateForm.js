@@ -64,7 +64,7 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label className={styles.Label}>Post Title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -78,7 +78,7 @@ function PostCreateForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label className={styles.Label}>Post Content</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -92,67 +92,77 @@ function PostCreateForm() {
           {msg}
         </Alert>
       ))}
-      <Button className="btn btn-success mt-2" type="submit">
+      <Button className={`${styles.SubmitButton}`} type="submit">
         Post
       </Button>
     </div>
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" lg={8}>
-          <Container className="d-flex flex-column justify-content-center">
-            <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image fluid src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={styles.ChangeButton}
-                      htmlFor="image-upload"
-                    >
-                      Change the image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset
-                    src="https://res.cloudinary.com/dyvzhzaak/image/upload/v1728620430/upload_qxrzen.png"
-                    message="Click or tap to upload an image"
-                  />
-                </Form.Label>
-              )}
+    <Container>
+      <div>
+        <h1 className={styles.Header}>Create A Post</h1>
+      </div>
+      <Form onSubmit={handleSubmit}>
+        <Row className={styles.Form}>
+          <Col className="py-2 p-0 p-md-2 d-flex" lg={8}>
+            <Container className="d-flex flex-column justify-content-center">
+              <Form.Group className="text-center">
+                {image ? (
+                  <>
+                    <figure>
+                      <Image
+                        src={image}
+                        rounded
+                        className={styles.Image}
+                        fluid
+                      />
+                    </figure>
+                    <div>
+                      <Form.Label
+                        className={styles.ChangeButton}
+                        htmlFor="image-upload"
+                      >
+                        Change the image
+                      </Form.Label>
+                    </div>
+                  </>
+                ) : (
+                  <Form.Label
+                    className="d-flex justify-content-center"
+                    htmlFor="image-upload"
+                  >
+                    <Asset
+                      src="https://res.cloudinary.com/dyvzhzaak/image/upload/v1728620430/upload_qxrzen.png"
+                      message="Click or tap to upload an image"
+                    />
+                  </Form.Label>
+                )}
 
-              <Form.Control
-                className="d-none"
-                type="file"
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-              {errors?.title?.map((msg, index) => (
-                <Alert className={styles.Alert} variant="warning" key={index}>
-                  {msg}
-                </Alert>
-              ))}
-            </Form.Group>
+                <Form.Control
+                  className="d-none"
+                  type="file"
+                  id="image-upload"
+                  accept="image/*"
+                  onChange={handleChangeImage}
+                  ref={imageInput}
+                />
+                {errors?.title?.map((msg, index) => (
+                  <Alert className={styles.Alert} variant="warning" key={index}>
+                    {msg}
+                  </Alert>
+                ))}
+              </Form.Group>
 
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col lg={4} className="d-none d-md-block p-0 p-md-2 my-auto">
-          <Container>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+              <div className="d-md-none">{textFields}</div>
+            </Container>
+          </Col>
+          <Col lg={4} className="d-none d-md-block p-0 p-md-2 m-auto">
+            <Container>{textFields}</Container>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
   );
 }
 

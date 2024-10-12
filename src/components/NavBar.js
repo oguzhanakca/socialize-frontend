@@ -40,14 +40,6 @@ function NavBar() {
         className={({ isActive }) =>
           styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
         }
-        to="/notifications"
-      >
-        <i class="fa-solid fa-bell"></i> Notifications
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-        }
         to="/liked"
       >
         <i class="fa-solid fa-heart"></i> Liked
