@@ -10,6 +10,7 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { Dropdown } from "react-bootstrap";
 
 function NavBar() {
   const currentUser = useCurrentUser();
@@ -29,6 +30,51 @@ function NavBar() {
   const loggedInIcons = (
     <>
       <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/posts/create"
+      >
+        <i className="fa-solid fa-square-plus"></i>{" "}
+        <span className="d-none d-md-inline">Add Post</span>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/liked"
+      >
+        <i className="fa-solid fa-heart"></i>{" "}
+        <span className="d-none d-md-inline">Liked</span>
+      </NavLink>
+
+      {/* Dropdown Menu for Profile */}
+      <Dropdown align="end">
+        <Dropdown.Toggle
+          as={NavLink}
+          id="dropdown-profile"
+          className={`${styles.NavLink}`}
+        >
+          <Avatar src={currentUser?.profile_image} text="Profile" height={35} />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className={styles.ProfileDropdown}>
+          <Dropdown.Item
+            as={NavLink}
+            to={`/profiles/${currentUser?.profile_id}`}
+            className={styles.ProfileDropdownItem}
+          >
+            <i className="fa-solid fa-user"></i> Profile
+          </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.ProfileDropdownItem}
+            onClick={handleSignout}
+          >
+            <i className="fa-solid fa-right-from-bracket"></i> Sign Out
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      {/* <NavLink
         className={({ isActive }) =>
           styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
         }
@@ -60,7 +106,7 @@ function NavBar() {
         onClick={handleSignout}
       >
         <i class="fa-solid fa-right-from-bracket"></i> Sign Out
-      </NavLink>
+      </NavLink> */}
     </>
   );
   const loggedOutIcons = (
@@ -71,7 +117,8 @@ function NavBar() {
         }
         to="/signin"
       >
-        <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        <i class="fa-solid fa-right-to-bracket"></i>{" "}
+        <span className="d-none d-md-inline">Sign In</span>
       </NavLink>
       <NavLink
         className={({ isActive }) =>
@@ -79,17 +126,13 @@ function NavBar() {
         }
         to="/signup"
       >
-        <i class="fa-solid fa-user-plus"></i> Sign Up
+        <i class="fa-solid fa-user-plus"></i>{" "}
+        <span className="d-none d-md-inline">Sign Up</span>
       </NavLink>
     </>
   );
   return (
-    <Navbar
-      expand="md"
-      expanded={expanded}
-      className={styles.NavBar}
-      id="navbar"
-    >
+    <Navbar expanded={expanded} className={styles.NavBar} id="navbar">
       <Container>
         <NavLink className={styles.Brand} to="/">
           Socialize

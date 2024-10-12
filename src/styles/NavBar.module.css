@@ -1,7 +1,8 @@
 .NavBar {
     text-decoration: none;
-    color: #ff5757;
     background-color: #555358;
+    color: #f09b56;
+
 }
 
 .Brand {
@@ -10,13 +11,29 @@
     font-style: normal;
     font-size: 24px;
     color: #ff5757;
+
 }
 
 .NavLinkActive {
-    color: #f09b56;
+    color: #ff5757;
+
 }
 
 .NavLink {
     padding: 5px;
     font-size: 20px;
+    margin: 0 5px;
+}
+
+.NavLink::after {
+    display: none !important;
+}
+
+.ProfileDropdown {
+    background-color: #828185;
+    padding: 5px;
+}
+
+.ProfileDropdownItem {
+    color: #f09b56;
 }
