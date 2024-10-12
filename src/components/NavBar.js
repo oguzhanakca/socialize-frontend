@@ -74,39 +74,6 @@ function NavBar() {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      {/* <NavLink
-        className={({ isActive }) =>
-          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-        }
-        to="/posts/create"
-      >
-        <i class="fa-solid fa-square-plus"></i> Add Post
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-        }
-        to="/liked"
-      >
-        <i class="fa-solid fa-heart"></i> Liked
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-        }
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-        <Avatar src={currentUser?.profile_image} text="Profile" height={35} />
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
-        }
-        to="/"
-        onClick={handleSignout}
-      >
-        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
-      </NavLink> */}
     </>
   );
   const loggedOutIcons = (
