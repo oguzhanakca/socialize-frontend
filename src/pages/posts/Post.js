@@ -84,27 +84,39 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Header className="d-flex align-items-center justify-content-between">
-        <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profile_image} height={55} />
-          {owner}
-        </Link>
+        <div>
+          <Link to={`/profiles/${profile_id}`} className={styles.Owner}>
+            <Avatar src={profile_image} height={55} />
+
+            <span className="ms-1">{owner}</span>
+          </Link>
+          <span className={`${styles.Dot} mx-1`}>
+            <i class="fa-solid fa-circle"></i>
+          </span>
+          <span className={styles.Date}>{updated_at}</span>
+        </div>
         <div className="d-flex align-items-center">
-          <span>{updated_at}</span>
           {is_owner && postPage && (
             <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
           )}
         </div>
       </Card.Header>
+      <Card.Body>
+        {title && (
+          <Card.Title className={`${styles.Title} text-center`}>
+            {title}
+          </Card.Title>
+        )}
+        {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
+      </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={image_url} alt={title} />
       </Link>
-      <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
-        <div className={styles.PostBar}>
+      <div className={styles.PostBar}>
+        <span>
           {is_owner ? (
             <OverlayTrigger
-              placement="top"
+              placement="bottom"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
               <i className="far fa-heart" />
@@ -126,12 +138,14 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {postlikes_count}
+        </span>
+        <span>
           <Link to={`/posts/${id}`}>
             <i class="fa-regular fa-comment"></i>
           </Link>
           {comments_count}
-        </div>
-      </Card.Body>
+        </span>
+      </div>
     </Card>
   );
 };

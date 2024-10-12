@@ -1,9 +1,43 @@
 .Post {
-    background-color: #ffffff;
+    background-color: #f8f8f8;
     border: 1px solid #dadadf;
-    border-radius: 2px;
+    border-radius: 10px;
     margin-bottom: 16px;
     text-align: center;
+}
+
+.PostBar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.Owner {
+    font-size: 22px;
+    color: black;
+    margin-left: 2px;
+}
+
+.Date {
+    color: #264653;
+}
+
+.Title {
+    font-size: 22px;
+    color: #03071e;
+}
+
+.Content {
+    font-size: 18px;
+    color: #023047;
+}
+
+.Dot {
+    font-size: 5px;
+    vertical-align: middle;
+    color: grey;
 }
 
 .Post figure,
@@ -12,13 +46,13 @@ h5 {
 }
 
 .Heart {
-    color: #f85032;
+    color: red;
 }
 
 .Heart:hover {
-    color: #2142b2;
+    color: rgb(230, 112, 112);
 }
 
 .HeartOutline:hover {
-    color: #f85032;
+    color: red;
 }

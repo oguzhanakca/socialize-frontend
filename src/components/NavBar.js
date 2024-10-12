@@ -51,11 +51,7 @@ function NavBar() {
       </NavLink>
 
       <Dropdown align="end">
-        <Dropdown.Toggle
-          as={NavLink}
-          id="dropdown-profile"
-          className={`${styles.NavLink}`}
-        >
+        <Dropdown.Toggle as={NavLink} className={`${styles.NavLink}`}>
           <Avatar src={currentUser?.profile_image} text="Profile" height={35} />
         </Dropdown.Toggle>
 

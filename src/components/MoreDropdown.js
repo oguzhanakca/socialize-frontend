@@ -1,13 +1,13 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis-v"
+    className="fa-solid fa-ellipsis"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -18,26 +18,38 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
-    <Dropdown className="ml-auto" drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+    // <DropdownButton
+    //   as={NavLink}
+    //   drop={"start"}
+    //   className={`${styles.Dropdown}`}
+    //   title={<i class="fa-solid fa-ellipsis"></i>}
+    // >
+    //   <Dropdown.Item onClick={handleEdit} aria-label="edit">
+    //     <i className="fas fa-edit" /> Edit
+    //   </Dropdown.Item>
+    //   <Dropdown.Item onClick={handleDelete} aria-label="delete">
+    //     <i className="fas fa-trash-alt" /> Delete
+    //   </Dropdown.Item>
+    // </DropdownButton>
+    <Dropdown align="end">
+      <Dropdown.Toggle as={NavLink} className={`${styles.Dropdown}`}>
+        <i class="fa-solid fa-ellipsis"></i>
+      </Dropdown.Toggle>
 
-      <Dropdown.Menu
-        className="text-center"
-        popperConfig={{ strategy: "fixed" }}
-      >
+      <Dropdown.Menu className={styles.Menu}>
         <Dropdown.Item
-          className={styles.DropdownItem}
           onClick={handleEdit}
           aria-label="edit"
+          className={styles.DropdownItem}
         >
-          <i className="fas fa-edit" />
+          <i className="fas fa-edit" /> Edit
         </Dropdown.Item>
         <Dropdown.Item
-          className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
+          className={styles.DropdownItem}
         >
-          <i className="fas fa-trash-alt" />
+          <i className="fas fa-trash-alt" /> Delete
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
