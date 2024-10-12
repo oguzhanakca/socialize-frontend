@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
 import {
   useCurrentUser,
@@ -15,6 +15,7 @@ import { Dropdown } from "react-bootstrap";
 function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const navigate = useNavigate();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
@@ -22,6 +23,7 @@ function NavBar() {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -48,7 +50,6 @@ function NavBar() {
         <span className="d-none d-md-inline">Liked</span>
       </NavLink>
 
-      {/* Dropdown Menu for Profile */}
       <Dropdown align="end">
         <Dropdown.Toggle
           as={NavLink}
