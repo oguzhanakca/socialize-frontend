@@ -98,7 +98,7 @@ function NavBar() {
       className={styles.NavBar}
       id="navbar"
     >
-      <Container fluid>
+      <Container>
         <NavLink className={styles.Brand} to="/">
           Socialize
         </NavLink>

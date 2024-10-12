@@ -26,10 +26,12 @@ const SignInForm = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data);
+      setCurrentUser(data.user);
+
       navigate(-1);
     } catch (err) {
       setErrors(err.response?.data);
+      console.log(err.response?.data);
     }
   };
 

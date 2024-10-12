@@ -6,10 +6,10 @@ const Avatar = ({ src, height = 45, text }) => {
     <span>
       <img
         className={styles.Avatar}
+        alt="avatar"
         src={src}
         height={height}
         width={height}
-        alt="avatar"
       />
       {text}
     </span>
