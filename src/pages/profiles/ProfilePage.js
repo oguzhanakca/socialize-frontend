@@ -113,9 +113,11 @@ function ProfilePage() {
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            <Post key={post.id} {...post} setPosts={setProfilePosts} />
-          ))}
+          children={profilePosts.results
+            .filter((post) => post.owner === profile?.owner)
+            .map((post) => (
+              <Post key={post.id} {...post} setPosts={setProfilePosts} />
+            ))}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}

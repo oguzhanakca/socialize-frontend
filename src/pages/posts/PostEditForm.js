@@ -20,9 +20,9 @@ function PostEditForm() {
   const [postData, setPostData] = useState({
     title: "",
     content: "",
-    image_url: "",
+    image: "",
   });
-  const { title, content, image_url } = postData;
+  const { title, content, image } = postData;
 
   const imageInput = useRef(null);
   const navigate = useNavigate();
@@ -32,10 +32,10 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, image_url, is_owner } = data;
+        const { title, content, image, is_owner } = data;
         console.log(data);
 
-        is_owner ? setPostData({ title, content, image_url }) : navigate("/");
+        is_owner ? setPostData({ title, content, image }) : navigate("/");
       } catch (err) {
         console.log(err);
       }
@@ -53,10 +53,10 @@ function PostEditForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image_url);
+      URL.revokeObjectURL(image);
       setPostData({
         ...postData,
-        image_url: URL.createObjectURL(event.target.files[0]),
+        image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
@@ -69,7 +69,7 @@ function PostEditForm() {
     formData.append("content", content);
 
     if (imageInput?.current?.files[0]) {
-      formData.append("image_url", imageInput.current.files[0]);
+      formData.append("image", imageInput.current.files[0]);
     }
 
     try {
@@ -134,7 +134,7 @@ function PostEditForm() {
           >
             <Form.Group className="text-center">
               <figure>
-                <Image className={appStyles.Image} src={image_url} rounded />
+                <Image className={appStyles.Image} src={image} rounded />
               </figure>
               <div>
                 <Form.Label className="btn" htmlFor="image-upload">

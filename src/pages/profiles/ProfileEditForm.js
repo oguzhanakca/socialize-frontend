@@ -27,9 +27,9 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
-    image_url: "",
+    image: "",
   });
-  const { name, content, image_url } = profileData;
+  const { name, content, image } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -38,8 +38,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
-          const { name, content, image_url } = data;
-          setProfileData({ name, content, image_url });
+          const { name, content, image } = data;
+          setProfileData({ name, content, image });
         } catch (err) {
           console.log(err);
           navigate("/");
@@ -66,14 +66,14 @@ const ProfileEditForm = () => {
     formData.append("content", content);
 
     if (imageFile?.current?.files[0]) {
-      formData.append("image_url", imageFile?.current?.files[0]);
+      formData.append("image", imageFile?.current?.files[0]);
     }
 
     try {
       const { data } = await axiosReq.put(`/profiles/${id}`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
-        profile_image: data.image_url,
+        profile_image: data.image,
       }));
       navigate(-1);
     } catch (err) {
@@ -103,7 +103,9 @@ const ProfileEditForm = () => {
       <Button className="btn btn-warning" onClick={() => navigate(-1)}>
         cancel
       </Button>
-      <Button className="btn btn-success">save</Button>
+      <Button className="btn btn-success" type="submit">
+        save
+      </Button>
     </>
   );
 
@@ -113,9 +115,9 @@ const ProfileEditForm = () => {
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
           <Container className={appStyles.Content}>
             <Form.Group>
-              {image_url && (
+              {image && (
                 <figure>
-                  <Image src={image_url} fluid />
+                  <Image src={image} fluid />
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (

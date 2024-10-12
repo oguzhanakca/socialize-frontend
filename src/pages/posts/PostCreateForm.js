@@ -147,7 +147,7 @@ function PostCreateForm() {
                   onChange={handleChangeImage}
                   ref={imageInput}
                 />
-                {errors?.title?.map((msg, index) => (
+                {errors?.image?.map((msg, index) => (
                   <Alert className={styles.Alert} variant="warning" key={index}>
                     {msg}
                   </Alert>
