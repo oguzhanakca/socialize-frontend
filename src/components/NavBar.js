@@ -35,11 +35,12 @@ function NavBar() {
         className={({ isActive }) =>
           styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
         }
-        to="/posts/create"
+        to="/"
       >
-        <i className="fa-solid fa-square-plus"></i>{" "}
-        <span className="d-none d-md-inline">Add Post</span>
+        <i class="fa-solid fa-house"></i>{" "}
+        <span className="d-none d-md-inline">Home</span>
       </NavLink>
+
       <NavLink
         className={({ isActive }) =>
           styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
@@ -48,6 +49,16 @@ function NavBar() {
       >
         <i className="fa-solid fa-heart"></i>{" "}
         <span className="d-none d-md-inline">Liked</span>
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to="/posts/create"
+      >
+        <i className="fa-solid fa-square-plus"></i>{" "}
+        <span className="d-none d-md-inline">Add Post</span>
       </NavLink>
 
       <Dropdown align="end">
