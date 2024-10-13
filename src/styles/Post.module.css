@@ -15,13 +15,14 @@
 }
 
 .Owner {
-    font-size: 22px;
+    font-size: 16px;
     color: black;
     margin-left: 2px;
 }
 
 .Date {
     color: #264653;
+    font-size: 14px;
 }
 
 .Title {

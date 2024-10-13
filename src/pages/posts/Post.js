@@ -95,7 +95,7 @@ const Post = (props) => {
           </span>
           <span className={styles.Date}>{updated_at}</span>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="align-self-center">
           {is_owner && postPage && (
             <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
           )}

@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
 import {
   useCurrentUser,
@@ -68,11 +68,36 @@ function NavBar() {
 
         <Dropdown.Menu className={styles.ProfileDropdown}>
           <Dropdown.Item
-            as={NavLink}
+            as={Link}
             to={`/profiles/${currentUser?.profile_id}`}
             className={styles.ProfileDropdownItem}
+            exact={true}
           >
             <i className="fa-solid fa-user"></i> Profile
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            to={`/profiles/${currentUser?.profile_id}/edit`}
+            className={styles.ProfileDropdownItem}
+            exact={true}
+          >
+            <i className="fa-solid fa-user"></i> Edit Profile
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            to={`/profiles/${currentUser?.profile_id}/edit/username`}
+            className={styles.ProfileDropdownItem}
+            exact={true}
+          >
+            <i className="fa-solid fa-user"></i> Change Username
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            to={`/profiles/${currentUser?.profile_id}/edit/password`}
+            className={styles.ProfileDropdownItem}
+            exact={true}
+          >
+            <i className="fa-solid fa-user"></i> Change Password
           </Dropdown.Item>
           <Dropdown.Item
             className={styles.ProfileDropdownItem}
