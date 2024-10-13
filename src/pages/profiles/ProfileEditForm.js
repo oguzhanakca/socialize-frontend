@@ -129,7 +129,7 @@ const ProfileEditForm = () => {
         <h1 className={styles.Header}>Edit Profile</h1>
       </div>
       <Form onSubmit={handleSubmit}>
-        <Row>
+        <Row className={styles.Form}>
           <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
             <Container className={`d-flex flex-column justify-content-center`}>
               <Form.Group className="text-center">

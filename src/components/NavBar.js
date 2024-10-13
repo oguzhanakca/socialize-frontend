@@ -73,7 +73,7 @@ function NavBar() {
             className={styles.ProfileDropdownItem}
             exact={true}
           >
-            <i className="fa-solid fa-user"></i> Profile
+            Profile
           </Dropdown.Item>
           <Dropdown.Item
             as={Link}
@@ -81,29 +81,21 @@ function NavBar() {
             className={styles.ProfileDropdownItem}
             exact={true}
           >
-            <i className="fa-solid fa-user"></i> Edit Profile
+            Edit Profile
           </Dropdown.Item>
           <Dropdown.Item
             as={Link}
-            to={`/profiles/${currentUser?.profile_id}/edit/username`}
+            to={`/profiles/${currentUser?.profile_id}/settings`}
             className={styles.ProfileDropdownItem}
             exact={true}
           >
-            <i className="fa-solid fa-user"></i> Change Username
-          </Dropdown.Item>
-          <Dropdown.Item
-            as={Link}
-            to={`/profiles/${currentUser?.profile_id}/edit/password`}
-            className={styles.ProfileDropdownItem}
-            exact={true}
-          >
-            <i className="fa-solid fa-user"></i> Change Password
+            Settings
           </Dropdown.Item>
           <Dropdown.Item
             className={styles.ProfileDropdownItem}
             onClick={handleSignout}
           >
-            <i className="fa-solid fa-right-from-bracket"></i> Sign Out
+            Sign Out
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
