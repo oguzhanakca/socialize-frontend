@@ -69,7 +69,7 @@ function ProfilePage() {
             <h3 className="m-2 d-">{profile?.owner}</h3>
           </div>
 
-          <Row className="justify-content-center no-gutters">
+          <Row className="justify-content-center">
             <Col xs={4} className="my-2">
               <div>{profile?.posts_count}</div>
               <div>Posts</div>
@@ -84,7 +84,7 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Col lg={3} className="text-lg-right">
+        <Col lg={3} className="text-lg-end">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
