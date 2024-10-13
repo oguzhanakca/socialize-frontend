@@ -5,6 +5,13 @@
 }
 
 .Date {
-    font-weight: lighter;
-    color: #c1c1c5;
+    color: #222222;
+}
+
+.Dot {
+    font-size: 5px;
+}
+
+.Comment {
+    background-color: #F8F8F8;
 }

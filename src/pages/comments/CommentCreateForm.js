@@ -25,7 +25,10 @@ function CommentCreateForm(props) {
       });
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...prevComments.results],
+        results: [
+          { ...data, commentlikes_count: 0, like_id: null },
+          ...prevComments.results,
+        ],
       }));
       setPost((prevPost) => ({
         results: [
@@ -42,30 +45,32 @@ function CommentCreateForm(props) {
   };
 
   return (
-    <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>
-          <Form.Control
-            className={styles.Form}
-            placeholder="my comment..."
-            as="textarea"
-            value={content}
-            onChange={handleChange}
-            rows={2}
-          />
-        </InputGroup>
-      </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!content.trim()}
-        type="submit"
-      >
-        post
-      </button>
-    </Form>
+    <div className="mx-auto">
+      <Form className="d-flex p-2" onSubmit={handleSubmit}>
+        <Link to={`/profiles/${profile_id}`}>
+          <Avatar src={profileImage} />
+        </Link>
+        <Form.Group className="flex-grow-1">
+          <InputGroup>
+            <Form.Control
+              className={`${styles.Form}`}
+              placeholder="Add your comment"
+              as="textarea"
+              value={content}
+              onChange={handleChange}
+              rows={2}
+            />
+          </InputGroup>
+        </Form.Group>
+        <button
+          className={`${styles.Button}`}
+          disabled={!content.trim()}
+          type="submit"
+        >
+          Post
+        </button>
+      </Form>
+    </div>
   );
 }
 
