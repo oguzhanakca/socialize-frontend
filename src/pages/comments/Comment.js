@@ -47,6 +47,7 @@ const Comment = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/commentlikes/", { comment: id });
+
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {

@@ -48,12 +48,17 @@ h5 {
 
 .Heart {
     color: red;
+    cursor: pointer;
 }
 
 .Heart:hover {
     color: rgb(230, 112, 112);
+    cursor: pointer;
+
 }
 
 .HeartOutline:hover {
     color: red;
+    cursor: pointer;
+
 }
