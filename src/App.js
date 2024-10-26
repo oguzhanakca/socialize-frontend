@@ -13,6 +13,7 @@ import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ProfileSettings from "./pages/profiles/ProfileSettings";
+import FollowersPage from "./pages/followers/FollowersPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -47,6 +48,7 @@ function App() {
           <Route path="/profiles/:id" element={<ProfilePage />} />
           <Route path="/profiles/:id/edit/" element={<ProfileEditForm />} />
           <Route path="/profiles/:id/settings/" element={<ProfileSettings />} />
+          <Route path="/profiles/:id/followers/" element={<FollowersPage />} />
 
           <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>

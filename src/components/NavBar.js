@@ -40,6 +40,15 @@ function NavBar() {
         <i class="fa-solid fa-house"></i>{" "}
         <span className="d-none d-md-inline">Home</span>
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
+        }
+        to={`/profiles/${currentUser?.profile_id}/followers/`}
+      >
+        <i class="fa-solid fa-house"></i>{" "}
+        <span className="d-none d-md-inline">Followers</span>
+      </NavLink>
 
       <NavLink
         className={({ isActive }) =>
