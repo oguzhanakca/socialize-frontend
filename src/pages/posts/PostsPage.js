@@ -30,10 +30,14 @@ function PostsPage({ message, filter = "" }) {
       try {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
 
-        setPosts(data);
+        const filteredPosts = data.results.filter((post) => {
+          return post.is_private === false || post.following_id;
+        });
+
+        setPosts({ ...data, results: filteredPosts });
         setHasLoaded(true);
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     };
 
@@ -62,7 +66,7 @@ function PostsPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search posts"
+            placeholder="Search by post title and users"
           />
         </Form>
 

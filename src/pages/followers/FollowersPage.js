@@ -26,10 +26,7 @@ function FollowersPage() {
             ),
           ]);
         setFollowers(followersData);
-
         setFollowing(followingData);
-        console.log(followersData);
-
         setHasLoaded(true);
       } catch (err) {
         console.log(err);

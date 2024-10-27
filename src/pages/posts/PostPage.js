@@ -15,6 +15,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import styles from "../../styles/Comment.module.css";
+import { Container } from "react-bootstrap";
 
 function PostPage() {
   const { id } = useParams();
@@ -73,9 +74,13 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>Nobody commented yet. Be the first one!</span>
+            <Container className="my-2 px-4 py-2">
+              <p className={styles.CommentHolder}>
+                Nobody commented yet. Be the first one!
+              </p>
+            </Container>
           ) : (
-            <span>Nobody commented yet.</span>
+            <p>Nobody commented yet.</p>
           )}
         </div>
       </Col>
