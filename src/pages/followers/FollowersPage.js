@@ -60,13 +60,6 @@ function FollowersPage() {
                   followers.results.length ? (
                     followers.results.map((profile) => (
                       <Profile key={profile.id} profile={profile} />
-                      // <div
-                      //   key={profile.id}
-                      //   className="d-flex align-items-center mb-2"
-                      // >
-                      //   <Avatar src={profile.image_url} height={50} />
-                      //   <p className="m-0 ms-2">{profile.owner}</p>
-                      // </div>
                     ))
                   ) : (
                     <Asset message="No followers found." />
@@ -81,13 +74,6 @@ function FollowersPage() {
                   following.results.length ? (
                     following.results.map((profile) => (
                       <Profile key={profile.id} profile={profile} />
-                      // <div
-                      //   key={profile.id}
-                      //   className="d-flex align-items-center mb-2"
-                      // >
-                      //   <Avatar src={profile.image_url} height={50} />
-                      //   <p className="m-0 ms-2">{profile.owner}</p>
-                      // </div>
                     ))
                   ) : (
                     <Asset message="Not following anyone yet." />

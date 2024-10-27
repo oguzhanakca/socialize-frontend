@@ -35,10 +35,10 @@ function NavBar() {
         className={({ isActive }) =>
           styles.NavLink + (isActive ? ` ${styles.NavLinkActive}` : "")
         }
-        to="/"
+        to="/chats"
       >
-        <i class="fa-solid fa-house"></i>{" "}
-        <span className="d-none d-md-inline">Home</span>
+        <i class="fa-solid fa-message"></i>{" "}
+        <span className="d-none d-md-inline">Chat</span>
       </NavLink>
       <NavLink
         className={({ isActive }) =>
