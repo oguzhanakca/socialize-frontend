@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import Accordion from "react-bootstrap/Accordion";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -26,8 +27,9 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     bio: "",
     image_url: "",
+    is_private: false,
   });
-  const { bio, image_url } = profileData;
+  const { bio, image_url, is_private } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -36,10 +38,10 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
-          const { bio, image_url } = data;
+          const { bio, image_url, is_private } = data;
           console.log(data);
 
-          setProfileData({ bio, image_url });
+          setProfileData({ bio, image_url, is_private });
         } catch (err) {
           console.log(err);
           navigate("/");
@@ -52,10 +54,10 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, navigate, id]);
 
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     setProfileData({
       ...profileData,
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -68,10 +70,18 @@ const ProfileEditForm = () => {
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleChangePrivacy = (e) => {
+    setProfileData({
+      ...profileData,
+      is_private: e.target.checked,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("bio", bio);
+    formData.append("is_private", is_private);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -85,7 +95,7 @@ const ProfileEditForm = () => {
       }));
       navigate(-1);
     } catch (err) {
-      console.log(formData);
+      console.log([...formData]);
 
       console.log(err.response?.data);
       setErrors(err.response?.data);
@@ -110,6 +120,27 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label className={styles.Label}>Privacy</Form.Label>
+        <Form.Check
+          className={`${styles.Privacy} my-2 text-start`}
+          type="switch"
+          id="privacy-switch"
+          label="Make my profile private!"
+          checked={is_private}
+          onChange={handleChangePrivacy}
+        />
+      </Form.Group>
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>What is private profile?</Accordion.Header>
+          <Accordion.Body>
+            If you turn your profile private, only followers can view and search
+            your posts.
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
       <Button
         className={styles.Button}
         variant="danger"
@@ -148,7 +179,7 @@ const ProfileEditForm = () => {
                     className="btn btn-secondary"
                     htmlFor="image-upload"
                   >
-                    Change the image
+                    Change profile picture
                   </Form.Label>
                 </div>
                 <Form.Control

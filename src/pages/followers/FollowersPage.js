@@ -16,7 +16,7 @@ function FollowersPage() {
   useEffect(() => {
     const fetchFollowersFollowing = async () => {
       try {
-        const [{ data: followersData }, { data: followingData }] =
+        const [{ data: followingData }, { data: followersData }] =
           await Promise.all([
             axiosReq.get(
               `/profiles/?owner__followed__owner__profile=${profile_id}`
@@ -26,7 +26,10 @@ function FollowersPage() {
             ),
           ]);
         setFollowers(followersData);
+
         setFollowing(followingData);
+        console.log(followersData);
+
         setHasLoaded(true);
       } catch (err) {
         console.log(err);

@@ -46,7 +46,7 @@ function NavBar() {
         }
         to={`/profiles/${currentUser?.profile_id}/followers/`}
       >
-        <i class="fa-solid fa-house"></i>{" "}
+        <i class="fa-solid fa-user-group"></i>{" "}
         <span className="d-none d-md-inline">Followers</span>
       </NavLink>
 

@@ -140,7 +140,13 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
+              {profile?.is_private && !profile?.following_id && !is_owner ? (
+                <p className="fs-4 text-center">
+                  This profile is private. Follow to see their posts.
+                </p>
+              ) : (
+                mainProfilePosts
+              )}
             </>
           ) : (
             <Asset spinner />
