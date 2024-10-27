@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import Asset from "../../components/Asset";
-import Avatar from "../../components/Avatar";
 import styles from "../../styles/FollowersPage.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Profile from "../profiles/Profile";
 
 function FollowersPage() {
   const currentUser = useCurrentUser();
@@ -34,7 +34,7 @@ function FollowersPage() {
     };
 
     fetchFollowersFollowing();
-  }, [profile_id]);
+  }, [profile_id, followers, following]);
 
   return (
     <Container className={`${styles.FollowersPage}`}>
@@ -59,13 +59,14 @@ function FollowersPage() {
                 {hasLoaded ? (
                   followers.results.length ? (
                     followers.results.map((profile) => (
-                      <div
-                        key={profile.id}
-                        className="d-flex align-items-center mb-2"
-                      >
-                        <Avatar src={profile.image_url} height={50} />
-                        <p className="m-0 ms-2">{profile.owner}</p>
-                      </div>
+                      <Profile key={profile.id} profile={profile} />
+                      // <div
+                      //   key={profile.id}
+                      //   className="d-flex align-items-center mb-2"
+                      // >
+                      //   <Avatar src={profile.image_url} height={50} />
+                      //   <p className="m-0 ms-2">{profile.owner}</p>
+                      // </div>
                     ))
                   ) : (
                     <Asset message="No followers found." />
@@ -79,13 +80,14 @@ function FollowersPage() {
                 {hasLoaded ? (
                   following.results.length ? (
                     following.results.map((profile) => (
-                      <div
-                        key={profile.id}
-                        className="d-flex align-items-center mb-2"
-                      >
-                        <Avatar src={profile.image_url} height={50} />
-                        <p className="m-0 ms-2">{profile.owner}</p>
-                      </div>
+                      <Profile key={profile.id} profile={profile} />
+                      // <div
+                      //   key={profile.id}
+                      //   className="d-flex align-items-center mb-2"
+                      // >
+                      //   <Avatar src={profile.image_url} height={50} />
+                      //   <p className="m-0 ms-2">{profile.owner}</p>
+                      // </div>
                     ))
                   ) : (
                     <Asset message="Not following anyone yet." />
