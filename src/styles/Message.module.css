@@ -1,0 +1,33 @@
+.Owner {
+    background-color: rgb(123, 156, 123);
+    padding: 5px;
+    text-align: end;
+    border-radius: 5px;
+}
+
+.Other {
+    background-color: rgb(70, 70, 70);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Head {
+    margin: 5px;
+    color: wheat;
+}
+
+.Content {
+    margin: 5px;
+    color: white;
+    max-width: 100%;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.Dot {
+    font-size: 5px;
+    align-self: center;
+    color: rgb(163, 163, 163);
+}

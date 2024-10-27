@@ -80,7 +80,6 @@ function NavBar() {
             as={Link}
             to={`/profiles/${currentUser?.profile_id}`}
             className={styles.ProfileDropdownItem}
-            exact={true}
           >
             Profile
           </Dropdown.Item>
@@ -88,7 +87,6 @@ function NavBar() {
             as={Link}
             to={`/profiles/${currentUser?.profile_id}/edit`}
             className={styles.ProfileDropdownItem}
-            exact={true}
           >
             Edit Profile
           </Dropdown.Item>
@@ -96,7 +94,6 @@ function NavBar() {
             as={Link}
             to={`/profiles/${currentUser?.profile_id}/settings`}
             className={styles.ProfileDropdownItem}
-            exact={true}
           >
             Settings
           </Dropdown.Item>

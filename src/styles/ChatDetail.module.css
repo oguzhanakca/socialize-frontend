@@ -1,0 +1,10 @@
+.Background {
+    background-color: #f8f8f8;
+    min-height: calc(100vh - 56px);
+    padding: 5px;
+}
+
+.Messages {
+    overflow-y: auto;
+    max-height: calc(100vh - 180px);
+}

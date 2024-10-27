@@ -31,7 +31,9 @@ function PostsPage({ message, filter = "" }) {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
 
         const filteredPosts = data.results.filter((post) => {
-          return post.is_private === false || post.following_id;
+          return (
+            post.is_private === false || post.following_id || post.is_owner
+          );
         });
 
         setPosts({ ...data, results: filteredPosts });
