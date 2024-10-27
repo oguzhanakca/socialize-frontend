@@ -10,7 +10,7 @@ import styles from "../../styles/ProfilePage.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useProfileData,
@@ -31,6 +31,7 @@ function ProfilePage() {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +53,32 @@ function ProfilePage() {
     };
     fetchData();
   }, [id, setProfileData]);
+
+  const handleMessageClick = async () => {
+    try {
+      const chatResponse = await axiosReq.get(`/chats/`);
+      console.log(chatResponse);
+
+      const existingChat = chatResponse.data.results.find(
+        (chat) =>
+          (chat.user1 === currentUser.profile_id &&
+            chat.user2 === profile.id) ||
+          (chat.user1 === profile.id && chat.user2 === currentUser.profile_id)
+      );
+
+      if (existingChat) {
+        navigate(`/chats/${existingChat.id}`);
+      } else {
+        const { data } = await axiosReq.post("/chats/", {
+          user1: currentUser.profile_id,
+          user2: profile.id,
+        });
+        navigate(`/chats/${data.id}`);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const mainProfile = (
     <>
@@ -101,6 +128,14 @@ function ProfilePage() {
                 Follow
               </Button>
             ))}
+          {currentUser && !is_owner && (
+            <Button
+              className="btn btn-primary ms-2"
+              onClick={handleMessageClick}
+            >
+              Message
+            </Button>
+          )}
         </Col>
         <Col className="p-3">{profile?.bio}</Col>
       </Row>

@@ -22,7 +22,6 @@
 .NavLink {
     padding: 5px;
     font-size: 20px;
-    margin: 0 5px;
 }
 
 .NavLink::after {
