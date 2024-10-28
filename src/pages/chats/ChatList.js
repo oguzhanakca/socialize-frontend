@@ -23,6 +23,15 @@ const ChatList = () => {
     handleMount();
   }, []);
 
+  const handleDeleteChat = async (chatId) => {
+    try {
+      await axiosReq.delete(`/chats/${chatId}/`); // API isteği
+      setChats((prevChats) => prevChats.filter((chat) => chat.id !== chatId));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div>
       <h2 className="text-center">Messages</h2>
@@ -30,7 +39,7 @@ const ChatList = () => {
         chats.length ? (
           <InfiniteScroll
             children={chats?.map((chat) => (
-              <ChatItem key={chat.id} chat={chat} />
+              <ChatItem key={chat.id} chat={chat} onDelete={handleDeleteChat} />
             ))}
             dataLength={chats.length}
             loader={<Asset spinner />}
