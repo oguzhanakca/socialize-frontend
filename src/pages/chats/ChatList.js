@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import ChatItem from "./ChatItem";
 import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
-    const fetchChats = async () => {
+    const handleMount = async () => {
       try {
         const { data } = await axiosReq.get("/chats/");
         setChats(data.results);
@@ -18,15 +20,23 @@ const ChatList = () => {
         console.error(err);
       }
     };
-    fetchChats();
+    handleMount();
   }, []);
 
   return (
     <div>
       <h2 className="text-center">Messages</h2>
       {hasLoaded ? (
-        chats?.length ? (
-          chats.map((chat) => <ChatItem key={chat.id} chat={chat} />)
+        chats.length ? (
+          <InfiniteScroll
+            children={chats?.map((chat) => (
+              <ChatItem key={chat.id} chat={chat} />
+            ))}
+            dataLength={chats.length}
+            loader={<Asset spinner />}
+            hasMore={!!chats.next}
+            next={() => fetchMoreData(chats, setChats)}
+          />
         ) : (
           <p>No chats available.</p>
         )

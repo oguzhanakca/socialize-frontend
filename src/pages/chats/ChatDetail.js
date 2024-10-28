@@ -66,6 +66,12 @@ const ChatDetail = (props) => {
     }
   };
 
+  const handleDeleteMessage = (messageId) => {
+    setMessages((prevMessages) =>
+      prevMessages.filter((message) => message.id !== messageId)
+    );
+  };
+
   return (
     <Container>
       {hasLoaded ? (
@@ -78,6 +84,7 @@ const ChatDetail = (props) => {
                   key={msg.id}
                   message={msg}
                   owner={currentUser.username === msg.owner}
+                  onDelete={handleDeleteMessage}
                 />
               ))}
               <div ref={messagesEndRef} />

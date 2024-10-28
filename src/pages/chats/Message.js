@@ -1,8 +1,18 @@
 import React from "react";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Message.module.css";
+import { axiosReq } from "../../api/axiosDefaults";
 
-const Message = ({ message, owner }) => {
+const Message = ({ message, owner, onDelete }) => {
+  const handleDelete = async () => {
+    try {
+      await axiosReq.delete(`/messages/${message.id}/`);
+      onDelete(message.id);
+    } catch (err) {
+      console.error("Failed to delete message:", err);
+    }
+  };
+
   return (
     <div>
       <div className={`d-flex ${owner ? "flex-row-reverse" : "flex-row"} my-1`}>
@@ -20,10 +30,19 @@ const Message = ({ message, owner }) => {
             </span>{" "}
             {"Date"}
           </p>
+
           <p className={`${styles.Content}`}>{message.content}</p>
         </div>
-
-        {/* <span>{new Date(message.timestamp).toLocaleString()}</span> */}
+        <div className="d-flex align-items-center me-2">
+          {owner && (
+            <i
+              className="fa-solid fa-trash-can text-danger ms-2 fs-3"
+              role="button"
+              onClick={handleDelete}
+              style={{ cursor: "pointer" }}
+            ></i>
+          )}
+        </div>
       </div>
     </div>
   );
