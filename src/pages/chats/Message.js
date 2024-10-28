@@ -28,7 +28,7 @@ const Message = ({ message, owner, onDelete }) => {
             <span className={styles.Dot}>
               <i class="fa-solid fa-circle"></i>
             </span>{" "}
-            {"Date"}
+            {message.timestamp}
           </p>
 
           <p className={`${styles.Content}`}>{message.content}</p>

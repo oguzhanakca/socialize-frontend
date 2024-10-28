@@ -72,11 +72,18 @@ const ChatDetail = (props) => {
     );
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
   return (
     <Container>
       {hasLoaded ? (
         <div className={`${styles.Background} d-flex flex-column`}>
-          <h2 className="text-center">{chat?.other_user_username}</h2>
+          <h2 className="text-center">Chat with {chat?.other_user_username}</h2>
           <div className="mt-1 flex-grow-1 overflow-auto">
             <ListGroup className={`${styles.Messages} mt-2`}>
               {messages?.map((msg) => (
@@ -99,6 +106,7 @@ const ChatDetail = (props) => {
                     rows={2}
                     value={messageContent}
                     onChange={(e) => setMessageContent(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     placeholder="Type your message..."
                     required
                     style={{ resize: "none" }}
