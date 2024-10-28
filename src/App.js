@@ -51,8 +51,11 @@ function App() {
           <Route path="/profiles/:id/edit/" element={<ProfileEditForm />} />
           <Route path="/profiles/:id/settings/" element={<ProfileSettings />} />
           <Route path="/profiles/:id/followers/" element={<FollowersPage />} />
-          <Route path="/chats" element={<ChatList />} />
-          <Route path="/chats/:chat_id" element={<ChatDetail />} />
+          <Route path="/chats" element={<ChatList user={currentUser} />} />
+          <Route
+            path="/chats/:chat_id"
+            element={<ChatDetail user={currentUser} />}
+          />
 
           <Route path="*" element={<p1>Page Not Found</p1>} />
         </Routes>

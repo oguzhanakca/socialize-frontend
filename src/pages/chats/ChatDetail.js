@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Message from "./Message";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -7,7 +7,7 @@ import { Button, Container, Form, ListGroup, Row } from "react-bootstrap";
 import styles from "../../styles/ChatDetail.module.css";
 import Asset from "../../components/Asset";
 
-const ChatDetail = (props) => {
+const ChatDetail = ({ user }) => {
   const { chat_id } = useParams();
   const [messages, setMessages] = useState([]);
   const [messageContent, setMessageContent] = useState("");
@@ -15,29 +15,38 @@ const ChatDetail = (props) => {
   const [chat, setChat] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
   const messagesEndRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const { data } = await axiosReq.get(`/chats/${chat_id}/messages/`);
-        setMessages(data.results);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    const fetchChat = async () => {
-      try {
-        const { data } = await axiosReq.get(`/chats/${chat_id}/`);
-        setChat(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchMessages();
-    fetchChat();
-    setHasLoaded(true);
-    scrollToBottom();
-  }, [chat_id]);
+    if (!user) {
+      navigate("/");
+    } else {
+      const fetchMessages = async () => {
+        try {
+          const { data } = await axiosReq.get(`/chats/${chat_id}/messages/`);
+          setMessages(data.results);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      const fetchChat = async () => {
+        try {
+          const { data } = await axiosReq.get(`/chats/${chat_id}/`);
+          if (user.pk === data.user1 || user.pk === data.user2) {
+            setChat(data);
+          } else {
+            navigate("/");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      fetchMessages();
+      fetchChat();
+      setHasLoaded(true);
+      scrollToBottom();
+    }
+  }, [chat_id, user, navigate]);
 
   useEffect(() => {
     scrollToBottom();

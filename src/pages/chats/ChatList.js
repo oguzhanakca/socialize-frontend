@@ -4,28 +4,34 @@ import ChatItem from "./ChatItem";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
 
-const ChatList = () => {
+const ChatList = ({ user }) => {
   const [chats, setChats] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get("/chats/");
-        setChats(data.results);
+    if (!user) {
+      navigate("/");
+    } else {
+      const handleMount = async () => {
+        try {
+          const { data } = await axiosReq.get("/chats/");
+          setChats(data.results);
 
-        setHasLoaded(true);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    handleMount();
-  }, []);
+          setHasLoaded(true);
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      handleMount();
+    }
+  }, [navigate, user]);
 
   const handleDeleteChat = async (chatId) => {
     try {
-      await axiosReq.delete(`/chats/${chatId}/`); // API isteği
+      await axiosReq.delete(`/chats/${chatId}/`);
       setChats((prevChats) => prevChats.filter((chat) => chat.id !== chatId));
     } catch (err) {
       console.error(err);
