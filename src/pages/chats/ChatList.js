@@ -18,8 +18,7 @@ const ChatList = ({ user }) => {
       const handleMount = async () => {
         try {
           const { data } = await axiosReq.get("/chats/");
-          setChats(data.results);
-
+          setChats(data);
           setHasLoaded(true);
         } catch (err) {
           console.error(err);
@@ -42,12 +41,12 @@ const ChatList = ({ user }) => {
     <div>
       <h2 className="text-center">Messages</h2>
       {hasLoaded ? (
-        chats.length ? (
+        chats.results.length ? (
           <InfiniteScroll
-            children={chats?.map((chat) => (
+            children={chats?.results.map((chat) => (
               <ChatItem key={chat.id} chat={chat} onDelete={handleDeleteChat} />
             ))}
-            dataLength={chats.length}
+            dataLength={chats.results.length}
             loader={<Asset spinner />}
             hasMore={!!chats.next}
             next={() => fetchMoreData(chats, setChats)}

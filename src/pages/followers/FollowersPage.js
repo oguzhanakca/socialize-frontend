@@ -5,13 +5,14 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/FollowersPage.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Profile from "../profiles/Profile";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function FollowersPage() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-
-  const [followers, setFollowers] = useState({ results: [] });
-  const [following, setFollowing] = useState({ results: [] });
+  const [followers, setFollowers] = useState();
+  const [following, setFollowing] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
   useEffect(() => {
     const fetchFollowersFollowing = async () => {
@@ -34,7 +35,7 @@ function FollowersPage() {
     };
 
     fetchFollowersFollowing();
-  }, [profile_id, followers, following]);
+  }, [profile_id]);
 
   return (
     <Container className={`${styles.FollowersPage}`}>
@@ -58,9 +59,19 @@ function FollowersPage() {
               <Tab.Pane eventKey="followers">
                 {hasLoaded ? (
                   followers.results.length ? (
-                    followers.results.map((profile) => (
-                      <Profile key={profile.id} profile={profile} />
-                    ))
+                    <InfiniteScroll
+                      children={followers?.results.map((profile) => (
+                        <Profile
+                          key={profile.id}
+                          profile={profile}
+                          followerPage={true}
+                        />
+                      ))}
+                      dataLength={followers.results.length}
+                      loader={<Asset spinner />}
+                      hasMore={!!followers.next}
+                      next={() => fetchMoreData(followers, setFollowers)}
+                    />
                   ) : (
                     <Asset message="No followers found." />
                   )
@@ -72,9 +83,19 @@ function FollowersPage() {
               <Tab.Pane eventKey="following">
                 {hasLoaded ? (
                   following.results.length ? (
-                    following.results.map((profile) => (
-                      <Profile key={profile.id} profile={profile} />
-                    ))
+                    <InfiniteScroll
+                      children={following?.results.map((profile) => (
+                        <Profile
+                          key={profile.id}
+                          profile={profile}
+                          followerPage={true}
+                        />
+                      ))}
+                      dataLength={following.results.length}
+                      loader={<Asset spinner />}
+                      hasMore={!!following.next}
+                      next={() => fetchMoreData(following, setFollowing)}
+                    />
                   ) : (
                     <Asset message="Not following anyone yet." />
                   )

@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 40 } = props;
+  const { profile, mobile, imageSize = 40, followerPage } = props;
   const { id, following_id, image_url, owner } = profile;
 
   const currentUser = useCurrentUser();
@@ -36,6 +36,7 @@ const Profile = (props) => {
         {!mobile &&
           currentUser &&
           !is_owner &&
+          !followerPage &&
           (following_id ? (
             <Button
               className="btn btn-danger"
