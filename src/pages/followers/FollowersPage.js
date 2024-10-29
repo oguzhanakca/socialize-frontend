@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { axiosReq } from "../../api/axiosDefaults";
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import React from "react";
+import useEffect from "react";
+import useState from "react";
+import axiosReq from "../../api/axiosDefaults";
+import Container from "react-bootstrap";
+import Row from "react-bootstrap";
+import Col from "react-bootstrap";
+import Tab from "react-bootstrap";
+import Nav from "react-bootstrap";
 import Asset from "../../components/Asset";
 import styles from "../../styles/FollowersPage.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import useCurrentUser from "../../contexts/CurrentUserContext";
 import Profile from "../profiles/Profile";
-import { fetchMoreData } from "../../utils/utils";
+import fetchMoreData from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function FollowersPage() {

@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
+import useEffect from "react";
+import useState from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
-import { useNavigate, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../../contexts/CurrentUserContext";
+import useNavigate from "react-router-dom";
+import useParams from "react-router-dom";
+import axiosRes from "../../api/axiosDefaults";
+import useCurrentUser from "../../contexts/CurrentUserContext";
+import useSetCurrentUser from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CreateEditForm.module.css";
 
 const ProfileSettings = () => {

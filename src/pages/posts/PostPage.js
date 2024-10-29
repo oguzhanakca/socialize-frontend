@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
+import useEffect from "react";
+import useState from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-
-import { useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
+import useParams from "react-router-dom";
+import axiosReq from "../../api/axiosDefaults";
 import Post from "./Post";
-
 import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import useCurrentUser from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
-import { fetchMoreData } from "../../utils/utils";
+import fetchMoreData from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import styles from "../../styles/Comment.module.css";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap";
 
 function PostPage() {
   const { id } = useParams();

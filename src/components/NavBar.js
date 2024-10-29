@@ -1,17 +1,17 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import Link from "react-router-dom";
+import NavLink from "react-router-dom";
+import useNavigate from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
+import useCurrentUser from "../contexts/CurrentUserContext";
+import useSetCurrentUser from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-import { Dropdown } from "react-bootstrap";
-import { removeTokenTimestamp } from "../utils/utils";
+import Dropdown from "react-bootstrap";
+import removeTokenTimestamp from "../utils/utils";
 
 function NavBar() {
   const currentUser = useCurrentUser();

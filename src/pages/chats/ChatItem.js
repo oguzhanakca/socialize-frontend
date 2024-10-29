@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/ChatItem.module.css";
 

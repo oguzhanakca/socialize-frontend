@@ -1,13 +1,14 @@
 import styles from "./App.module.css";
-import { Route, Routes } from "react-router-dom";
+import Route from "react-router-dom";
+import Routes from "react-router-dom";
 import NavBar from "./components/NavBar";
 import SignUpForm from "./pages/auth/SignUpForm";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap";
 import "./api/axiosDefaults";
 import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
+import useCurrentUser from "./contexts/CurrentUserContext";
 import PostsPage from "./pages/posts/PostsPage";
 import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";

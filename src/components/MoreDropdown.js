@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
-import { NavLink } from "react-router-dom";
+import NavLink from "react-router-dom";
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (

@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import useCurrentUser from "../../contexts/CurrentUserContext";
+import Card from "react-bootstrap";
+import OverlayTrigger from "react-bootstrap";
+import Tooltip from "react-bootstrap";
+
+import Link from "react-router-dom";
+import useNavigate from "react-router-dom";
+
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import axiosRes from "../../api/axiosDefaults";
+import MoreDropdown from "../../components/MoreDropdown";
 
 const Post = (props) => {
   const {
