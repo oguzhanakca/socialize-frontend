@@ -24,7 +24,7 @@ const Profile = (props) => {
       <div className={`d-flex align-items-center ${mobile && "flex-column"}`}>
         <div>
           <Link className="align-self-center" to={`/profiles/${id}`}>
-            <Avatar src={image_url} height={imageSize} />
+            <Avatar src={image_url} height={imageSize} id={id} />
           </Link>
         </div>
         <div className={`mx-2 ${styles.WordBreak}`}>

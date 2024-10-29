@@ -63,6 +63,7 @@ function PostsPage({ message, filter = "" }) {
             type="text"
             className="mr-sm-2"
             placeholder="Search posts by post title or users"
+            aria-label="Search"
           />
         </Form>
 

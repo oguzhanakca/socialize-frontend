@@ -81,7 +81,12 @@ function NavBar() {
 
       <Dropdown align="end">
         <Dropdown.Toggle as={NavLink} className={`${styles.NavLink}`}>
-          <Avatar src={currentUser?.profile_image} text="Profile" height={35} />
+          <Avatar
+            src={currentUser?.profile_image}
+            text="Profile"
+            height={35}
+            id={currentUser?.pk}
+          />
         </Dropdown.Toggle>
 
         <Dropdown.Menu className={styles.ProfileDropdown}>
@@ -141,9 +146,7 @@ function NavBar() {
   return (
     <Navbar expanded={expanded} className={styles.NavBar} id="navbar">
       <Container>
-        <NavLink className={styles.Brand} to="/">
-          Socialize
-        </NavLink>
+        <h1 className={styles.Brand}>Socialize</h1>
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}

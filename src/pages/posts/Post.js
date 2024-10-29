@@ -86,7 +86,7 @@ const Post = (props) => {
       <Card.Header className="d-flex align-items-center justify-content-between">
         <div>
           <Link to={`/profiles/${profile_id}`} className={styles.Owner}>
-            <Avatar src={profile_image} height={55} />
+            <Avatar src={profile_image} height={55} id={id} />
 
             <span className="ms-1">{owner}</span>
           </Link>
@@ -122,12 +122,16 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+            <span>
+              <span onClick={handleUnlike}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
             </span>
           ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            <span>
+              <span onClick={handleLike}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
             </span>
           ) : (
             <OverlayTrigger
@@ -140,9 +144,7 @@ const Post = (props) => {
           {postlikes_count}
         </span>
         <span>
-          <Link to={`/posts/${id}`}>
-            <i class="fa-regular fa-comment"></i>
-          </Link>
+          <i class="fa-regular fa-comment"></i>
           {comments_count}
         </span>
       </div>

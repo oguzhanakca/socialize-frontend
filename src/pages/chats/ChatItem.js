@@ -10,7 +10,11 @@ const ChatItem = ({ chat, onDelete }) => {
     >
       <div>
         <Link to={`/chats/${chat.id}`}>
-          <Avatar src={chat.other_user_profile_image} height={50} />
+          <Avatar
+            src={chat.other_user_profile_image}
+            height={50}
+            id={`${chat.other_user_username}_${chat.id}`}
+          />
           {chat.other_user_username}
         </Link>
       </div>

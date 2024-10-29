@@ -1,6 +1,6 @@
 .NavBar {
     text-decoration: none;
-    background-color: #555358;
+    background-color: #343437;
     color: #f09b56;
 
 }
@@ -11,11 +11,11 @@
     font-style: normal;
     font-size: 24px;
     color: #ff5757;
-
+    margin-bottom: 0px;
 }
 
 .NavLinkActive {
-    color: #ff5757;
+    color: #FFBDBD;
 
 }
 
