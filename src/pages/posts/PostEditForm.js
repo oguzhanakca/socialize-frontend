@@ -87,8 +87,9 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label className={styles.Label}>Post Title</Form.Label>
+        <h3 className={styles.Label}>Post Title</h3>
         <Form.Control
+          aria-label="post-title"
           type="text"
           name="title"
           value={title}
@@ -101,8 +102,9 @@ function PostEditForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label className={styles.Label}>Post Content</Form.Label>
+        <h3 className={styles.Label}>Post Content</h3>
         <Form.Control
+          aria-label="post-content"
           as="textarea"
           rows={6}
           name="content"
@@ -131,7 +133,7 @@ function PostEditForm() {
   return (
     <Container>
       <div>
-        <h1 className={styles.Header}>Edit Post</h1>
+        <h2 className={styles.Header}>Edit Post</h2>
       </div>
       <Form onSubmit={handleSubmit}>
         <Row className={styles.Form}>
@@ -139,7 +141,7 @@ function PostEditForm() {
             <Container className={`d-flex flex-column justify-content-center`}>
               <Form.Group className="text-center">
                 <figure>
-                  <Image src={image_url} rounded fluid />
+                  <Image src={image_url} rounded fluid alt="post-image" />
                 </figure>
                 <div>
                   <Form.Label className="btn" htmlFor="image-upload">

@@ -26,3 +26,42 @@
     background-color: #1f233360;
     color: white;
 }
+
+
+.CancelButton {
+    border: none;
+    background-color: #523131;
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 100px;
+    padding: 5px 10px;
+    height: 50px;
+    min-width: 60px;
+    margin: 5px;
+}
+
+.CancelButton:hover {
+    cursor: pointer;
+    background-color: #331f1f;
+    color: white;
+}
+
+
+
+.SaveButton {
+    border: none;
+    background-color: #375231;
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 100px;
+    padding: 5px 10px;
+    height: 50px;
+    min-width: 60px;
+    margin: 5px;
+}
+
+.SaveButton:hover {
+    cursor: pointer;
+    background-color: #21331f;
+    color: white;
+}
