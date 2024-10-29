@@ -9,7 +9,7 @@
 }
 
 .NavLink {
-    background-color: #2399fa;
+    background-color: #034982;
     color: #f8f8f8;
     padding: 10px 20px;
     border-radius: 5px;
@@ -22,6 +22,6 @@
 }
 
 .NavLink.nav-tabs.nav-link.active {
-    background-color: #007bff !important;
+    background-color: #034982 !important;
     color: white !important;
 }

@@ -41,7 +41,7 @@ function FollowersPage() {
     <Container className={`${styles.FollowersPage}`}>
       <Row>
         <Col lg={8} className="offset-lg-2">
-          <h3 className={styles.Header}>Followers & Following</h3>
+          <h2 className={styles.Header}>Followers & Following</h2>
           <Tab.Container defaultActiveKey="followers">
             <Nav fill variant="tabs" className="justify-content-center">
               <Nav.Item>

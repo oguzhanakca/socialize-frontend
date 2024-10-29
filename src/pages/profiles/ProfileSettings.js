@@ -73,13 +73,12 @@ const ProfileSettings = () => {
           <Row className={`${styles.Form} mb-2 p-2`}>
             <Form onSubmit={handleUsernameSubmit}>
               <Form.Group>
-                <Form.Label className={styles.Label}>
-                  Change username
-                </Form.Label>
+                <h2 className={styles.Label}>Change username</h2>
                 <Form.Control
                   placeholder="Username"
                   type="text"
                   className="text-center"
+                  aria-label="username"
                   value={username}
                   onChange={(event) => setUsername(event.target.value)}
                 />
@@ -100,11 +99,12 @@ const ProfileSettings = () => {
           <Row className={`${styles.Form} p-2`}>
             <Form onSubmit={handlePasswordSubmit}>
               <Form.Group>
-                <Form.Label className={styles.Label}>New password</Form.Label>
+                <h2 className={styles.Label}>New password</h2>
                 <Form.Control
                   placeholder="New Password"
                   type="password"
                   className="text-center"
+                  aria-label="password1"
                   value={new_password1}
                   onChange={handlePasswordChange}
                   name="new_password1"
@@ -116,13 +116,12 @@ const ProfileSettings = () => {
                 </Alert>
               ))}
               <Form.Group>
-                <Form.Label className={styles.Label}>
-                  Confirm password
-                </Form.Label>
+                <h2 className={styles.Label}>Confirm password</h2>
                 <Form.Control
                   placeholder="Confirm New Password"
                   type="password"
                   className="text-center"
+                  aria-label="password2"
                   value={new_password2}
                   onChange={handlePasswordChange}
                   name="new_password2"

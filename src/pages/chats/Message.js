@@ -13,11 +13,13 @@ const Message = ({ message, owner, onDelete }) => {
     }
   };
 
+  console.log(message);
+
   return (
     <div>
       <div className={`d-flex ${owner ? "flex-row-reverse" : "flex-row"} my-1`}>
         <div>
-          <Avatar src={message.owner_image_url} height={45} />
+          <Avatar src={message.owner_image_url} height={45} id={message.id} />
         </div>
         <div
           className={`${owner ? styles.Owner : styles.Other}

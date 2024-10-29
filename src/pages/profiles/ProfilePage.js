@@ -88,11 +88,12 @@ function ProfilePage() {
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.image_url}
+            alt="profile"
           />
         </Col>
         <Col lg={6}>
           <div className="d-flex text-center justify-content-center">
-            <h3 className="m-2 d-">{profile?.owner}</h3>
+            <h2 className="m-2">{profile?.owner}</h2>
           </div>
 
           <Row className="justify-content-center">
@@ -145,7 +146,9 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="fs-3 text-center">{profile?.owner}'s Latests Posts</p>
+      <h3 className={`${styles.Header} fs-3 text-center`}>
+        {profile?.owner}'s Latests Posts
+      </h3>
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results

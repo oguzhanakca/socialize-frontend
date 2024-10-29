@@ -16,6 +16,7 @@ import ProfileSettings from "./pages/profiles/ProfileSettings";
 import FollowersPage from "./pages/followers/FollowersPage";
 import ChatList from "./pages/chats/ChatList";
 import ChatDetail from "./pages/chats/ChatDetail";
+import NotFound from "./pages/error/NotFound";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -57,7 +58,7 @@ function App() {
             element={<ChatDetail user={currentUser} />}
           />
 
-          <Route path="*" element={<p1>Page Not Found</p1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </div>

@@ -6,7 +6,11 @@ import { NavLink } from "react-router-dom";
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown align="end">
-      <Dropdown.Toggle as={NavLink} className={`${styles.Dropdown}`}>
+      <Dropdown.Toggle
+        as={NavLink}
+        className={`${styles.Dropdown}`}
+        aria-label="Settings"
+      >
         <i class="fa-solid fa-gear"></i>
       </Dropdown.Toggle>
 

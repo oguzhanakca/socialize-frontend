@@ -91,7 +91,7 @@ const Comment = (props) => {
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} />
+            <Avatar src={profile_image} id={owner} />
           </Link>
           <div className="d-flex flex-column ml-2 justify-content-between">
             <div className="d-flex align-items-center gap-1">

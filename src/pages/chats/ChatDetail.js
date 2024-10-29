@@ -113,6 +113,7 @@ const ChatDetail = ({ user }) => {
                   <Form.Control
                     as="textarea"
                     rows={2}
+                    aria-label="message"
                     value={messageContent}
                     onChange={(e) => setMessageContent(e.target.value)}
                     onKeyDown={handleKeyDown}

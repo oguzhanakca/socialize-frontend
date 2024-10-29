@@ -5,6 +5,12 @@
     margin: 4px;
 }
 
+.Header {
+    color: rgb(0, 0, 0);
+}
+
+
+
 
 @media screen and (max-width: 991px) {
     .ProfileImage {

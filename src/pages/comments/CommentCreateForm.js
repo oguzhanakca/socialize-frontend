@@ -48,7 +48,7 @@ function CommentCreateForm(props) {
     <div className="mx-auto">
       <Form className="d-flex p-2" onSubmit={handleSubmit}>
         <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profileImage} />
+          <Avatar src={profileImage} id={profile_id} />
         </Link>
         <Form.Group className="flex-grow-1">
           <InputGroup>
@@ -56,6 +56,7 @@ function CommentCreateForm(props) {
               className={`${styles.Form}`}
               placeholder="Add your comment"
               as="textarea"
+              aria-label="comment"
               value={content}
               onChange={handleChange}
               rows={2}

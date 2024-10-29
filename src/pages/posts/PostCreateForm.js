@@ -68,6 +68,7 @@ function PostCreateForm() {
         <Form.Control
           type="text"
           name="title"
+          aria-label="post-title"
           value={title}
           onChange={handleChange}
         />
@@ -82,6 +83,7 @@ function PostCreateForm() {
         <Form.Control
           as="textarea"
           rows={6}
+          aria-label="post-content"
           name="content"
           value={content}
           onChange={handleChange}
@@ -129,7 +131,8 @@ function PostCreateForm() {
                   >
                     <Asset
                       src="https://res.cloudinary.com/dyvzhzaak/image/upload/v1728620430/upload_qxrzen.png"
-                      message="Click or tap to upload an image"
+                      message="Upload image"
+                      alt="upload-picture"
                     />
                   </Form.Label>
                 )}

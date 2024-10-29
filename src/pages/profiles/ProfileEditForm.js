@@ -103,10 +103,11 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label className={styles.Label}>Bio</Form.Label>
+        <h3 className={`${styles.Label} fs-2`}>Bio</h3>
         <Form.Control
           as="textarea"
           value={bio}
+          aria-label="bio"
           onChange={handleChange}
           name="bio"
           rows={7}
@@ -120,15 +121,18 @@ const ProfileEditForm = () => {
       ))}
 
       <Form.Group>
-        <Form.Label className={styles.Label}>Privacy</Form.Label>
-        <Form.Check
-          className={`${styles.Privacy} my-2 text-start`}
-          type="switch"
-          id="privacy-switch"
-          label="Make my profile private!"
-          checked={is_private}
-          onChange={handleChangePrivacy}
-        />
+        <h3 className={`${styles.Label} fs-2`}>Privacy</h3>
+        <div className="d-flex align-items-baseline">
+          <Form.Check
+            className={`${styles.Privacy} my-2 align-items-start`}
+            type="switch"
+            id="privacy-switch"
+            aria-label="privacy"
+            checked={is_private}
+            onChange={handleChangePrivacy}
+          />
+          <p className="ms-1">Make my profile private!</p>
+        </div>
       </Form.Group>
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
@@ -155,7 +159,7 @@ const ProfileEditForm = () => {
   return (
     <Container>
       <div>
-        <h1 className={styles.Header}>Edit Profile</h1>
+        <h2 className={styles.Header}>Edit Profile</h2>
       </div>
       <Form onSubmit={handleSubmit}>
         <Row className={styles.Form}>
@@ -164,7 +168,7 @@ const ProfileEditForm = () => {
               <Form.Group className="text-center">
                 {image_url && (
                   <figure>
-                    <Image src={image_url} fluid rounded />
+                    <Image src={image_url} fluid rounded alt="upload" />
                   </figure>
                 )}
                 {errors?.image_url?.map((message, idx) => (
