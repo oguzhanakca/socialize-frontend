@@ -5,6 +5,7 @@ import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -27,7 +28,7 @@ const SignInForm = () => {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-
+      setTokenTimestamp(data);
       navigate(-1);
     } catch (err) {
       setErrors(err.response?.data);
@@ -51,7 +52,7 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.username?.map((msg, index) => (
+            {errors?.username?.map((msg, index) => (
               <Alert variant="warning" key={index} className={styles.Alert}>
                 {msg}
               </Alert>
@@ -67,7 +68,7 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password?.map((msg, index) => (
+            {errors?.password?.map((msg, index) => (
               <Alert variant="warning" key={index} className={styles.Alert}>
                 {msg}
               </Alert>
@@ -78,7 +79,7 @@ const SignInForm = () => {
               </Button>
             </Col>
             <Col>
-              {errors.non_field_errors?.map((msg, index) => (
+              {errors?.non_field_errors?.map((msg, index) => (
                 <Alert key={index} variant="warning" className="mt-3">
                   {msg}
                 </Alert>

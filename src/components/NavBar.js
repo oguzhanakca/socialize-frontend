@@ -11,6 +11,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { Dropdown } from "react-bootstrap";
+import { removeTokenTimestamp } from "../utils/utils";
 
 function NavBar() {
   const currentUser = useCurrentUser();
@@ -23,6 +24,7 @@ function NavBar() {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -37,7 +39,7 @@ function NavBar() {
         }
         to="/"
       >
-        <i class="fa-solid fa-house"></i>{" "}
+        <i className="fa-solid fa-house"></i>{" "}
         <span className="d-none d-md-inline">Home</span>
       </NavLink>
       <NavLink
@@ -46,7 +48,7 @@ function NavBar() {
         }
         to="/chats"
       >
-        <i class="fa-solid fa-message"></i>{" "}
+        <i className="fa-solid fa-message"></i>{" "}
         <span className="d-none d-md-inline">Chat</span>
       </NavLink>
       <NavLink
@@ -55,7 +57,7 @@ function NavBar() {
         }
         to={`/profiles/${currentUser?.profile_id}/followers/`}
       >
-        <i class="fa-solid fa-user-group"></i>{" "}
+        <i className="fa-solid fa-user-group"></i>{" "}
         <span className="d-none d-md-inline">Followers</span>
       </NavLink>
 
@@ -129,7 +131,7 @@ function NavBar() {
         }
         to="/"
       >
-        <i class="fa-solid fa-house"></i>{" "}
+        <i className="fa-solid fa-house"></i>{" "}
         <span className="d-none d-md-inline">Home</span>
       </NavLink>
       <NavLink
@@ -138,7 +140,7 @@ function NavBar() {
         }
         to="/signin"
       >
-        <i class="fa-solid fa-right-to-bracket"></i>{" "}
+        <i className="fa-solid fa-right-to-bracket"></i>{" "}
         <span className="d-none d-md-inline">Sign In</span>
       </NavLink>
       <NavLink
@@ -147,7 +149,7 @@ function NavBar() {
         }
         to="/signup"
       >
-        <i class="fa-solid fa-user-plus"></i>{" "}
+        <i className="fa-solid fa-user-plus"></i>{" "}
         <span className="d-none d-md-inline">Sign Up</span>
       </NavLink>
     </>

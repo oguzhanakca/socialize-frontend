@@ -41,7 +41,9 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleLike = async () => {
@@ -97,7 +99,7 @@ const Comment = (props) => {
             <div className="d-flex align-items-center gap-1">
               <span className={styles.Owner}>{owner}</span>
               <span className={styles.Dot}>
-                <i class="fa-solid fa-circle"></i>
+                <i className="fa-solid fa-circle"></i>
               </span>
               <span className={styles.Date}>{updated_at}</span>
             </div>

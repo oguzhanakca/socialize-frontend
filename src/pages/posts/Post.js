@@ -91,7 +91,7 @@ const Post = (props) => {
             <span className="ms-1">{owner}</span>
           </Link>
           <span className={`${styles.Dot} mx-1`}>
-            <i class="fa-solid fa-circle"></i>
+            <i className="fa-solid fa-circle"></i>
           </span>
           <span className={styles.Date}>{updated_at}</span>
         </div>
@@ -144,7 +144,7 @@ const Post = (props) => {
           {postlikes_count}
         </span>
         <span>
-          <i class="fa-regular fa-comment"></i>
+          <i className="fa-regular fa-comment"></i>
           {comments_count}
         </span>
       </div>

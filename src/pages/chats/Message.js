@@ -28,7 +28,7 @@ const Message = ({ message, owner, onDelete }) => {
           <p className={`${styles.Head} d-flex gap-1`}>
             {message.owner}{" "}
             <span className={styles.Dot}>
-              <i class="fa-solid fa-circle"></i>
+              <i className="fa-solid fa-circle"></i>
             </span>{" "}
             {message.timestamp}
           </p>

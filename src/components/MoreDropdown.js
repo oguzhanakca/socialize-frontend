@@ -11,7 +11,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         className={`${styles.Dropdown}`}
         aria-label="Settings"
       >
-        <i class="fa-solid fa-gear"></i>
+        <i className="fa-solid fa-gear"></i>
       </Dropdown.Toggle>
 
       <Dropdown.Menu className={styles.Menu}>
