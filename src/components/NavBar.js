@@ -27,7 +27,7 @@ function NavBar() {
       removeTokenTimestamp();
       navigate("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

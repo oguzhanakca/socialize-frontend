@@ -13,7 +13,7 @@ const Message = ({ message, owner, onDelete }) => {
     }
   };
 
-  console.log(message);
+  // console.log(message);
 
   return (
     <div>

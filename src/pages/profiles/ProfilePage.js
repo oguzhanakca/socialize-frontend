@@ -46,7 +46,7 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchData();
@@ -55,7 +55,7 @@ function ProfilePage() {
   const handleMessageClick = async () => {
     try {
       const chatResponse = await axiosReq.get(`/chats/`);
-      console.log(chatResponse);
+      // console.log(chatResponse);
 
       const existingChat = chatResponse.data.results.find(
         (chat) =>
@@ -74,7 +74,7 @@ function ProfilePage() {
         navigate(`/chats/${data.id}`);
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

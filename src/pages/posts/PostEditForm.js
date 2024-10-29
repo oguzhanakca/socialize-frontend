@@ -32,12 +32,12 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        console.log(data);
+        // console.log(data);
 
         const { title, content, image_url, is_owner } = data;
         is_owner ? setPostData({ title, content, image_url }) : navigate("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -74,11 +74,11 @@ function PostEditForm() {
 
     try {
       await axiosReq.put(`/posts/${id}`, formData);
-      console.log(formData);
+      // console.log(formData);
 
       navigate(`/posts/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

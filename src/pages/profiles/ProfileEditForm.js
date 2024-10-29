@@ -41,7 +41,7 @@ const ProfileEditForm = () => {
           const { bio, image_url, is_private } = data;
           setProfileData({ bio, image_url, is_private });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           navigate("/");
         }
       } else {
@@ -93,9 +93,9 @@ const ProfileEditForm = () => {
       }));
       navigate(-1);
     } catch (err) {
-      console.log([...formData]);
+      // console.log([...formData]);
 
-      console.log(err.response?.data);
+      // console.log(err.response?.data);
       setErrors(err.response?.data);
     }
   };
