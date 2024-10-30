@@ -96,9 +96,7 @@ const ChatDetail = ({ user }) => {
     <Container>
       {hasLoaded ? (
         <div className={`${styles.Background} d-flex flex-column`}>
-          <h2 className={`${styles.ChatHead} text-center`}>
-            Chat with {chat?.other_user_username}
-          </h2>
+          <h2 className="text-center">Chat with {chat?.other_user_username}</h2>
           <div className="mt-1 flex-grow-1 overflow-auto">
             <ListGroup className={`${styles.Messages} mt-2`}>
               {messages?.map((msg) => (
