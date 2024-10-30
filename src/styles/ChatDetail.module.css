@@ -8,3 +8,7 @@
     overflow-y: auto;
     max-height: calc(100vh - 190px);
 }
+
+.ChatHead {
+    background-color: wheat;
+}
