@@ -1,15 +1,15 @@
 import React from "react";
-import useState from "react";
-import Link from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
-import useCurrentUser from "../../contexts/CurrentUserContext";
-import MoreDropdown from "../../components/MoreDropdown";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { MoreDropdown } from "../../components/MoreDropdown";
 import axios from "axios";
 import CommentEditForm from "./CommentEditForm";
-import axiosRes from "../../api/axiosDefaults";
-import OverlayTrigger from "react-bootstrap";
-import Tooltip from "react-bootstrap";
+import { axiosRes } from "../../api/axiosDefaults";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 const Comment = (props) => {
   const {

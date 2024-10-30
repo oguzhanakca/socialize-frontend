@@ -1,7 +1,7 @@
-import Container from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
-import useProfileData from "../../contexts/ProfileDataContext";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();

@@ -1,13 +1,7 @@
-import React from "react";
-import createContext from "react";
-import useContext from "react";
-import useEffect from "react";
-import useState from "react";
-import axiosReq from "../api/axiosDefaults";
-import axiosRes from "../api/axiosDefaults";
-import useCurrentUser from "./CurrentUserContext";
-import followHelper from "../utils/utils";
-import unfollowHelper from "../utils/utils";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { axiosReq, axiosRes } from "../api/axiosDefaults";
+import { useCurrentUser } from "./CurrentUserContext";
+import { followHelper, unfollowHelper } from "../utils/utils";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();

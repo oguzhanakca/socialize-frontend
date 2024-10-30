@@ -1,7 +1,4 @@
-import React from "react";
-import useEffect from "react";
-import useRef from "react";
-import useState from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -10,9 +7,8 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import styles from "../../styles/CreateEditForm.module.css";
-import useNavigate from "react-router";
-import useParams from "react-router";
-import axiosReq from "../../api/axiosDefaults";
+import { useNavigate, useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});

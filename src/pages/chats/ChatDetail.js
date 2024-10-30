@@ -1,17 +1,13 @@
-import React from "react";
-import useEffect from "react";
-import useRef from "react";
-import useState from "react";
-import useNavigate from "react-router-dom";
-import useParams from "react-router-dom";
-import axiosReq from "../../api/axiosDefaults";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 import Message from "./Message";
-import useCurrentUser from "../../contexts/CurrentUserContext";
-import Button from "react-bootstrap";
-import Container from "react-bootstrap";
-import Form from "react-bootstrap";
-import ListGroup from "react-bootstrap";
-import Row from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import ListGroup from "react-bootstrap/ListGroup";
+import Row from "react-bootstrap/Row";
 import styles from "../../styles/ChatDetail.module.css";
 import Asset from "../../components/Asset";
 

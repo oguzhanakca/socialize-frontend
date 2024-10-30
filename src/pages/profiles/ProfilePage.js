@@ -1,23 +1,20 @@
-import React from "react";
-import useEffect from "react";
-import useState from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import PopularProfiles from "./PopularProfiles";
-import useCurrentUser from "../../contexts/CurrentUserContext";
-import useNavigate from "react-router-dom";
-import useParams from "react-router-dom";
-import axiosReq from "../../api/axiosDefaults";
-import useProfileData from "../../contexts/ProfileDataContext";
-import useSetProfileData from "../../contexts/ProfileDataContext";
-import Button from "react-bootstrap";
-import Image from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useNavigate, useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useProfileData } from "../../contexts/ProfileDataContext";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
-import fetchMoreData from "../../utils/utils";
+import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {

@@ -1,9 +1,5 @@
-import React from "react";
-import useState from "react";
-import useEffect from "react";
-import useRef from "react";
-import useNavigate from "react-router-dom";
-import useParams from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -12,9 +8,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Accordion from "react-bootstrap/Accordion";
-import axiosReq from "../../api/axiosDefaults";
-import useCurrentUser from "../../contexts/CurrentUserContext";
-import useSetCurrentUser from "../../contexts/CurrentUserContext";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CreateEditForm.module.css";
 
 const ProfileEditForm = () => {

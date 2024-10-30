@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Message.module.css";
-import axiosReq from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const Message = ({ message, owner, onDelete }) => {
   const handleDelete = async () => {

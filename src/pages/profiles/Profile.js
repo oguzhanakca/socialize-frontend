@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../../styles/Profile.module.css";
-import useCurrentUser from "../../contexts/CurrentUserContext";
-import Link from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import Button from "react-bootstrap";
-import useSetProfileData from "../../contexts/ProfileDataContext";
+import Button from "react-bootstrap/Button";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 40, followerPage } = props;
