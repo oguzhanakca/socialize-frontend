@@ -29,8 +29,8 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
-  const secured_image_url = image_url.replace("http://", "https://");
-  const secured_profile_image = profile_image.replace("http://", "https://");
+  const secured_image_url = image_url?.replace("http://", "https://");
+  const secured_profile_image = profile_image?.replace("http://", "https://");
 
 
   const handleEdit = () => {
