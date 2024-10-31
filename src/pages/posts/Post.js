@@ -112,7 +112,7 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image_url} alt={title} />
+        <Card.Img src={image_url} alt={title} fluid/>
       </Link>
       <div className={styles.PostBar}>
         <span>
