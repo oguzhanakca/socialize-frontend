@@ -16,7 +16,7 @@ import Container from "react-bootstrap/Container";
 
 function PostPage() {
   const { id } = useParams();
-  const [post, setPost] = useState({ results: [] });
+  const [post, setPost] = useState();
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
@@ -41,7 +41,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2 mx-auto" lg={8}>
         <PopularProfiles mobile />
-        <Post {...post.results[0]} setPosts={setPost} postPage />
+        <Post {...post} setPosts={setPost} postPage />
         <div className={styles.Comment}>
           <hr />
           {currentUser && (
