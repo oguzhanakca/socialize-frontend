@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import ResponsiveImage from "../../components/ResponsiveImage";
 
 const Post = (props) => {
   const {
@@ -30,6 +31,7 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
   const secured_image_url = image_url?.replace("http://", "https://");
+  const webp_image_url = secured_image_url.replace(/\.(jpg|png)$/, ".webp");
   const secured_profile_image = profile_image?.replace("http://", "https://");
 
 
@@ -115,8 +117,12 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={secured_image_url} alt={title} style={{ width: '100%', height: '550px' }} loading="lazy" 
-  decoding="async"/>
+      <ResponsiveImage
+        webpSrc={webp_image_url}
+        fallbackSrc={secured_image_url}
+        alt={title}
+        style={{ width: "100%", height: "auto" }}
+      />
       </Link>
       <div className={styles.PostBar}>
         <span>
