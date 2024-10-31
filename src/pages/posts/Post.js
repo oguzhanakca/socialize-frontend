@@ -30,8 +30,9 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
-  const secured_image_url = image_url?.replace("http://", "https://");
-  const webp_image_url = secured_image_url.replace(/\.(jpg|png)$/, ".webp");
+  const optimizedImageUrl = image_url
+    .replace("http://", "https://")
+    .replace("/upload/", "/upload/f_auto,q_auto/");
   const secured_profile_image = profile_image?.replace("http://", "https://");
 
 
@@ -118,8 +119,8 @@ const Post = (props) => {
       </Card.Body>
       <Link to={`/posts/${id}`}>
       <ResponsiveImage
-        webpSrc={webp_image_url}
-        fallbackSrc={secured_image_url}
+        webpSrc={optimizedImageUrl}
+        fallbackSrc={optimizedImageUrl}
         alt={title}
         style={{ width: "100%", height: "auto" }}
       />
