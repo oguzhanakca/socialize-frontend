@@ -30,9 +30,7 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
-  const optimizedImageUrl = image_url
-    .replace("http://", "https://")
-    .replace("/upload/", "/upload/f_auto,q_auto/");
+  const optimizedImageUrl = image_url?.replace("http://", "https://").replace("/upload/", "/upload/f_auto,q_auto/");
   const secured_profile_image = profile_image?.replace("http://", "https://");
 
 
