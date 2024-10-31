@@ -44,7 +44,7 @@ function PostPage() {
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <div className={styles.Comment}>
           <hr />
-          {currentUser ? (
+          {currentUser && (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
               profileImage={profile_image}
@@ -52,9 +52,7 @@ function PostPage() {
               setPost={setPost}
               setComments={setComments}
             />
-          ) : comments.results.length ? (
-            "Comments"
-          ) : null}
+          )}
           {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
@@ -72,12 +70,12 @@ function PostPage() {
             />
           ) : currentUser ? (
             <Container className="my-2 px-4 py-2">
-              <p className={styles.CommentHolder}>
+              <p className="ms-2">
                 Nobody commented yet. Be the first one!
               </p>
             </Container>
           ) : (
-            <p>Nobody commented yet.</p>
+            <p className="ms-2">Nobody commented yet.</p>
           )}
         </div>
       </Col>
