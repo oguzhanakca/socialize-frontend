@@ -23,6 +23,7 @@ function PostEditForm() {
   const imageInput = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [securedImage, setSecuredImage] = useState()
 
   useEffect(() => {
     const handleMount = async () => {
@@ -31,6 +32,7 @@ function PostEditForm() {
         // console.log(data);
 
         const { title, content, image_url, is_owner } = data;
+        setSecuredImage(image_url?.replace("http://", "https://"))
         is_owner ? setPostData({ title, content, image_url }) : navigate("/");
       } catch (err) {
         // console.log(err);
@@ -138,7 +140,7 @@ function PostEditForm() {
             <Container className={`d-flex flex-column justify-content-center`}>
               <Form.Group className="text-center">
                 <figure>
-                  <Image src={image_url} rounded fluid alt="post-image" />
+                  <Image src={securedImage} rounded fluid alt="post-image" />
                 </figure>
                 <div>
                   <Form.Label className="btn" htmlFor="image-upload">
