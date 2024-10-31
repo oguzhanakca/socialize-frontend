@@ -29,6 +29,7 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
+  const secure_image_url = image_url.replace("http://", "https://");
 
   const handleEdit = () => {
     navigate(`/posts/${id}/edit`);
@@ -112,7 +113,7 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image_url} alt={title} fluid/>
+        <Card.Img src={secure_image_url} alt={title}/>
       </Link>
       <div className={styles.PostBar}>
         <span>
