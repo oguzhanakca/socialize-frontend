@@ -115,7 +115,8 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={secured_image_url} alt={title} style={{ width: '100%', height: 'auto' }}/>
+        <Card.Img src={secured_image_url} alt={title} style={{ width: '100%', height: 'auto' }} loading="lazy" 
+  decoding="async"/>
       </Link>
       <div className={styles.PostBar}>
         <span>
