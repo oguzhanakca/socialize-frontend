@@ -19,6 +19,8 @@ const ProfileEditForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const imageFile = useRef();
+  const [securedImage, setSecuredImage] = useState();
+
 
   const [profileData, setProfileData] = useState({
     bio: "",
@@ -35,6 +37,7 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
           const { bio, image_url, is_private } = data;
+          setSecuredImage(image_url?.replace("http://", "https://"))
           setProfileData({ bio, image_url, is_private });
         } catch (err) {
           // console.log(err);

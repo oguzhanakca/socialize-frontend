@@ -23,7 +23,7 @@ function PostEditForm() {
   const imageInput = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
-  const [securedImage, setSecuredImage] = useState()
+  const [securedImage, setSecuredImage] = useState();
 
   useEffect(() => {
     const handleMount = async () => {
