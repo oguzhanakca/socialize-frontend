@@ -122,7 +122,7 @@ const Post = (props) => {
         webpSrc={optimizedImageUrl}
         fallbackSrc={optimizedImageUrl}
         alt={title}
-        style={{ width: "100%", height: "auto" }}
+        style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
       />
       </Link>
       <div className={styles.PostBar}>
