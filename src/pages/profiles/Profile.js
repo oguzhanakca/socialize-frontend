@@ -9,6 +9,8 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 const Profile = (props) => {
   const { profile, mobile, imageSize = 40, followerPage } = props;
   const { id, following_id, image_url, owner } = profile;
+  const secured_image_url = image_url.replace("http://", "https://");
+
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -24,7 +26,7 @@ const Profile = (props) => {
       <div className={`d-flex align-items-center ${mobile && "flex-column"}`}>
         <div>
           <Link className="align-self-center" to={`/profiles/${id}`}>
-            <Avatar src={image_url} height={imageSize} id={id} />
+            <Avatar src={secured_image_url} height={imageSize} id={id} />
           </Link>
         </div>
         <div className={`mx-2 ${styles.WordBreak}`}>

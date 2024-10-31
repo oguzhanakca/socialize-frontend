@@ -29,7 +29,9 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
-  const secure_image_url = image_url.replace("http://", "https://");
+  const secured_image_url = image_url.replace("http://", "https://");
+  const secured_profile_image = profile_image.replace("http://", "https://");
+
 
   const handleEdit = () => {
     navigate(`/posts/${id}/edit`);
@@ -89,7 +91,7 @@ const Post = (props) => {
       <Card.Header className="d-flex align-items-center justify-content-between">
         <div>
           <Link to={`/profiles/${profile_id}`} className={styles.Owner}>
-            <Avatar src={profile_image} height={55} id={id} />
+            <Avatar src={secured_profile_image} height={55} id={id} />
 
             <span className="ms-1">{owner}</span>
           </Link>
@@ -113,7 +115,7 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={secure_image_url} alt={title}/>
+        <Card.Img src={secured_image_url} alt={title}/>
       </Link>
       <div className={styles.PostBar}>
         <span>
