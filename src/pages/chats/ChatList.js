@@ -32,8 +32,12 @@ const ChatList = ({ user }) => {
     try {
       await axiosReq.delete(`/chats/${chatId}/`);
       setChats((prevChats) => prevChats.results.filter((chat) => chat.id !== chatId));
+      console.log(prevChats);
+      
 
     } catch (err) {
+      console.log(prevChats);
+      
       // console.log(err);
     }
   };
