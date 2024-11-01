@@ -21,7 +21,7 @@ const ChatList = ({ user }) => {
           setChats(data);
           setHasLoaded(true);
         } catch (err) {
-          console.error(err);
+          // console.log(err);
         }
       };
       handleMount();
@@ -31,9 +31,9 @@ const ChatList = ({ user }) => {
   const handleDeleteChat = async (chatId) => {
     try {
       await axiosReq.delete(`/chats/${chatId}/`);
-      setChats((prevChats) => prevChats.filter((chat) => chat.id !== chatId));
+      setChats((chats) => chats?.filter((chat) => chat.id !== chatId));
     } catch (err) {
-      console.error(err);
+      // console.log(err);
     }
   };
 
