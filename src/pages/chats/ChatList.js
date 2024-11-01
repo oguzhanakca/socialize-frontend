@@ -47,7 +47,7 @@ const ChatList = ({ user }) => {
             children={chats?.results.map((chat) => (
               <ChatItem key={chat.id} chat={chat} onDelete={handleDeleteChat} />
             ))}
-            dataLength={chats.results.length}
+            dataLength={chats?.results.length}
             loader={<Asset spinner />}
             hasMore={!!chats.next}
             next={() => fetchMoreData(chats, setChats)}
