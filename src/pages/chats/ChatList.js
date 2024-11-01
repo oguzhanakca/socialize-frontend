@@ -28,19 +28,6 @@ const ChatList = ({ user }) => {
     }
   }, [navigate, user]);
 
-  const handleDeleteChat = async (chatId) => {
-    try {
-      await axiosReq.delete(`/chats/${chatId}/`);
-      setChats((chats) => chats.results.filter((chat) => chat.id !== chatId));
-      console.log(chats);
-      
-
-    } catch (err) {
-      console.log(chats);
-      
-      // console.log(err);
-    }
-  };
 
   return (
     <div>
@@ -49,7 +36,7 @@ const ChatList = ({ user }) => {
         chats?.results.length ? (
           <InfiniteScroll
             children={chats?.results.map((chat) => (
-              <ChatItem key={chat.id} chat={chat} onDelete={handleDeleteChat} />
+              <ChatItem key={chat.id} chat={chat} />
             ))}
             dataLength={chats?.results.length}
             loader={<Asset spinner />}

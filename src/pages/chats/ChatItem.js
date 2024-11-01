@@ -18,12 +18,6 @@ const ChatItem = ({ chat, onDelete }) => {
           {chat.other_user_username}
         </Link>
       </div>
-      <i
-        className="fa-solid fa-trash-can text-danger ms-2 fs-3"
-        role="button"
-        onClick={() => onDelete(chat.id)}
-        style={{ cursor: "pointer" }}
-      ></i>
     </div>
   );
 };
