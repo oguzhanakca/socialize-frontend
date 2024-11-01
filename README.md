@@ -1,5 +1,5 @@
 # Socialize
-**Developer: Jamie King**
+**Developer: Oğuzhan Akça**
 
 ![Mockup image](docs/am%20i%20responsive.png)
 
@@ -8,46 +8,32 @@
 
 ## Table of Contents
   1. [About](#about)
-  3. [User Experience](#user-experience)
+  2. [User Experience](#user-experience)
       1. [Target Audience](#target-audience)
       2. [User Requirements and Expectations](#user-requirements-and-expectations)
       3. [User Stories](#user-stories)
-  4. [Technical Design](#technical-design)
+  3. [Technical Design](#technical-design)
       1. [Agile Design](#agile-design)
       2. [CRUD Functionality](#crud-functionality)
-      4. [Fonts](#fonts)
-      5. [Wireframes](#wireframes)
-  5. [Technologies Used](#technologies-used)
+      3. [Fonts](#fonts)
+      4. [Wireframes](#wireframes)
+  4. [Technologies Used](#technologies-used)
       1. [Coding Languages](#coding-languages)
       2. [Frameworks and Tools](#frameworks-and-tools)
       3. [Libraries](#libraries)
-  6. [Front-End](#front-end)
-      1. [React](#react)
-  7. [Back-End API](#back-end-api)
-      1. [Django REST Framework](#django-rest-framework)
-  8. [Features](#features)
-  9. [Future features / improvements](#future-features--improvements)
-  10. [Validation](#validation)
+  5. [Features](#features)
+  6. [Future features / improvements](#future-features--improvements)
+  7. [Validation](#validation)
       1. [HTML](#html-validation)
       2. [CSS](#css-validation)
       3. [ESLint JavaScript JSX Validation](#eslint-javascript-jsx-validation)
       4. [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse-validation)
       5. [WAVE Validation](#wave-validation)
-  11. [Testing](#testing)
-      1. [Device Testing](#device-testing)
-      2. [Browser Compatibility](#browser-compatibility)
-      3. [Manual Testing](#manual-testing)
-  12. [Bugs](#bugs)
-  13. [Deployment](#deployment)
-      1. [Heroku](#heroku)
-      2. [Forking GitHub Repo](#forking-the-github-repository)
-      3. [Clone a GitHub Repo](#clone-a-github-repository)
-  14. [Credits](#credits)
-      1. [Tutorial](#tutorials)
-      2. [Code](#code)
-      3. [Literature](#literature)
-      4. [Misc](#misc)
-  15. [Acknowledgements](#acknowledgements)
+  8. [Testing](#testing)
+      1. [Browser Compatibility](#browser-compatibility)
+      2. [Manual Testing](#manual-testing)
+  9. [Bugs](#bugs)
+  10. [Credits](#credits)
 
 
 ## About
@@ -131,7 +117,7 @@ Socialize handles data with full CRUD Functionality:
 - Create -  Users can create an account, profile, post, comment, like, follow, chat and message objects.
 - Read - Users can read the profile, posts, comments, messages.
 - Update - Users can update their profile, username, password, posts, comments, likes, follows via the interactive forms and buttons on the site.
-- Delete - Users can delete posts, comments, likes, follows, chats and messages via the interactive buttons on the site.
+- Delete - Users can delete posts, comments, likes, follows and messages via the interactive buttons on the site.
 
 ### Fonts
 
@@ -1015,9 +1001,11 @@ The website was tested on the following web browsers:
 
 ## Credits
 
-For the project, Moments walktrough from Code Institute used as base structure.
+This project was created based on the Code Institute's walkthrough project [Moments](https://github.com/mr-fibonacci/moments/tree/master/src).
 
-### Code
+- By occuring errors, i dig through [Stack Overflow](https://stackoverflow.com/). Although i couldn't really find an exact answers for my problems, it helped me to understand what may be wrong.
 
-- By occuring errors, [Stack Overflow](https://stackoverflow.com/) helped me to investigate problems. Although i couldn't really find an exact answers for my problems, it helped me to understand what may be wrong.
+- Official documentation of the written libraries are used.
+
+- Every image in the app is found in [Pexels](https://www.pexels.com/)
 
