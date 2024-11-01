@@ -9,7 +9,7 @@ const Message = ({ message, owner, onDelete }) => {
       await axiosReq.delete(`/messages/${message.id}/`);
       onDelete(message.id);
     } catch (err) {
-      console.error("Failed to delete message:", err);
+      // console.log("Failed to delete message:", err);
     }
   };
 

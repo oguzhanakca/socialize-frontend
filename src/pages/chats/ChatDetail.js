@@ -30,7 +30,7 @@ const ChatDetail = ({ user }) => {
           const { data } = await axiosReq.get(`/chats/${chat_id}/messages/`);
           setMessages(data.results);
         } catch (err) {
-          console.error(err);
+          // console.log(err);
         }
       };
       const fetchChat = async () => {
@@ -42,7 +42,7 @@ const ChatDetail = ({ user }) => {
             navigate("/");
           }
         } catch (err) {
-          console.error(err);
+          // console.log(err);
         }
       };
       fetchMessages();
@@ -75,7 +75,7 @@ const ChatDetail = ({ user }) => {
       setMessageContent("");
       scrollToBottom();
     } catch (err) {
-      console.error(err);
+      // console.log(err);
     }
   };
 

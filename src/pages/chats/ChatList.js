@@ -42,7 +42,7 @@ const ChatList = ({ user }) => {
     <div>
       <h2 className="text-center">Messages</h2>
       {hasLoaded ? (
-        chats.results.length ? (
+        chats?.results.length ? (
           <InfiniteScroll
             children={chats?.results.map((chat) => (
               <ChatItem key={chat.id} chat={chat} onDelete={handleDeleteChat} />
