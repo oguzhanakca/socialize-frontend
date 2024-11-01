@@ -80,36 +80,35 @@ Socialize is a social media app that allows users to share images and chat with 
 1. As a user, I can create a new account so that I can access all the features for signed up users.
 2. As a user, I can sign in to the app so that I can access functionality for logged in users.
 3. As a user, I can tell if I am logged in or not so that I can log in if I need to.
-5. As a user, I can view user's avatars so that I can easily identify users of the application.
-6. As a user I, can view other users profiles so that I can see their posts and learn more about them.
-7. As a user I can see a list of the most followed profiles so that I can see which profiles are popular.
-8. As a user, I can view statistics about a specific profile: bio, number of posts, follows and users followed so that I can learn more about them.
-9. As a logged in user, I can edit my profile so that I can change my profile picture and bio.
-10. As a logged in user, I can change my username and password so that I can change my name and keep my profile secure.
-11. As a logged in user, I can create posts so that I can share my experiences and images with others.
-12. As a user, I can view the details of a single post so that I can learn more about it.
-13. As a user, I can view all the most recent posts so that I am up to date with the newest content.
-14. As a logged in user, I can view the posts I liked so that I can review them.
-15. As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
-17. As a post owner, I can edit my post title and description so that I can make corrections or update my post after it was created.
-18. As a user, I can view the specific post so that I can read the comments about the post.
-19. As a user, I want to have a navigation bar that provides easy access to different sections of the app so that I can quickly navigate.
-20. As a user, I can navigate through pages quickly so that I can view content without requiring page refresh.
-21. As a not logged in user, I can see sign in and sign up options so that I can sign in/sign up.
-22. As a user, I can keep scrolling through the pages on the site, that are loaded for me automatically so that I have better user experience.
-23. As a logged in user, I can comment on posts so that I can share my opinion about post with others.
-24. As a user, I can see when a comment was made so that I know how old a comment is.
-25. As an owner of a comment, I can delete my comment so that I can control removal of my comment from the application.
-26. As an owner of a comment, I can edit my comment so that I can fix or update my existing comment.
-27. As a logged in user, I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
-28. As a user, I want to start a chat with another user so that I can communicate with them through private messages.
-29. As a user, I want to see a list of all my previous chats so that I can easily access my past conversations.
-30. As a user, I want to send a message in a selected chat so that I can share my thoughts and information within the conversation.
-31. As a user, I want to edit my own messages so that I can correct any mistakes I made in the message.
-32. As a user, I want to delete my own messages so that I can remove any messages sent by mistake or those that are no longer needed.
-33. As a logged in user, I can like a post so that I can show my support for the posts that interest me.
-34. As a logged in user, I can like a comment so that I can show my support for the comments that interest me.
-35. As a user, I want to be informed when I navigate a page that does not exist.
+4. As a user, I can view user's avatars so that I can easily identify users of the application.
+5. As a user I, can view other users profiles so that I can see their posts and learn more about them.
+6. As a user I can see a list of the most followed profiles so that I can see which profiles are popular.
+7. As a user, I can view statistics about a specific profile: bio, number of posts, follows and users followed so that I can learn more about them.
+8. As a logged in user, I can edit my profile so that I can change my profile picture and bio.
+9. As a logged in user, I can change my username and password so that I can change my name and keep my profile secure.
+10. As a logged in user, I can create posts so that I can share my experiences and images with others.
+11. As a user, I can view the details of a single post so that I can learn more about it.
+12. As a user, I can view all the most recent posts so that I am up to date with the newest content.
+13. As a logged in user, I can view the posts I liked so that I can review them.
+14. As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
+15. As a post owner, I can edit my post title and description so that I can make corrections or update my post after it was created.
+16. As a user, I can view the specific post so that I can read the comments about the post.
+17. As a user, I want to have a navigation bar that provides easy access to different sections of the app so that I can quickly navigate.
+18. As a user, I can navigate through pages quickly so that I can view content without requiring page refresh.
+19. As a not logged in user, I can see sign in and sign up options so that I can sign in/sign up.
+20. As a user, I can keep scrolling through the pages on the site, that are loaded for me automatically so that I have better user experience.
+21. As a logged in user, I can comment on posts so that I can share my opinion about post with others.
+22. As a user, I can see when a comment was made so that I know how old a comment is.
+23. As an owner of a comment, I can delete my comment so that I can control removal of my comment from the application.
+24. As an owner of a comment, I can edit my comment so that I can fix or update my existing comment.
+25. As a logged in user, I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
+26. As a user, I want to start a chat with another user so that I can communicate with them through private messages.
+27. As a user, I want to see a list of all my previous chats so that I can easily access my past conversations.
+28. As a user, I want to send a message in a selected chat so that I can share my thoughts and information within the conversation.
+29. As a user, I want to delete my own messages so that I can remove any messages sent by mistake or those that are no longer needed.
+30. As a logged in user, I can like a post so that I can show my support for the posts that interest me.
+31. As a logged in user, I can like a comment so that I can show my support for the comments that interest me.
+32. As a user, I want to be informed when I navigate a page that does not exist.
 
 
 ## Technical Design
@@ -209,7 +208,7 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/homepage.png">
 </details>
 
-- Covered in user stories: 4, 6, 12, 14, 15, 20, 25, 31
+- Covered in user stories: 4, 6, 12, 14, 20, 25
 
 ### Navigation Bar
 
@@ -239,7 +238,7 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/signin.png">
 </details>
 
-- Covered in user stories: 2, 3
+- Covered in user stories: 2, 3, 19
 
 ### Sign Up
 
@@ -254,7 +253,7 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/signup.png">
 </details>
 
-- Covered in user stories: 1
+- Covered in user stories: 1, 19
 
 ### Profile
 
@@ -356,13 +355,12 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/liked-posts.png">
 </details>
 
-- Covered in user stories: 31, 32
+- Covered in user stories: 30, 31
 
 ### Chat
 
 - Logged in users can create a chat room with the user they want.
 - If the chat room already exist, new one will not be created.
-- Chat participants can delete the chat.
 - Users can't create a chat room with themselves.
 - Logged in users can view their chat list through the navigation bar.
 
@@ -385,7 +383,7 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/message.png">
 </details>
 
-- Covered in user stories: 29, 30
+- Covered in user stories: 28, 29
 
 ### Not Found
 
@@ -397,7 +395,7 @@ In its entirety the website consists of a variety of features across the many si
 <img src="docs/features/not-found.png">
 </details>
 
-- Covered in user stories: 33
+- Covered in user stories: 32
 
 
 
@@ -935,301 +933,91 @@ The website was tested on the following web browsers:
 <img src="docs/testing/unfollow.png">
 </details>
 
-26. As a user, I can create tasks so that I can partake in the main purpose of the site.
+26. As a user, I want to start a chat with another user so that I can communicate with them through private messages.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-|  Create Task  | From the Nav bar click on the add task button or from the Tasks page, Watched page or profile page click on the create task button  | User to be presented with a form to create a task and upon submission create a task object | Works as expected |
+|  Chat  | In the user's profile page, click the "Message"  | User will be redirected to chat room with the desired user | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/26-testing-user-story-1.png">
-<img src="docs/testing-manual/26-testing-user-story-2.png">
-<img src="docs/testing-manual/26-testing-user-story-3.png">
+<img src="docs/testing/follow.png">
+<img src="docs/testing/chat.png">
 </details>
 
-27. As a user, I can create packs so that I can group tasks together.
+27. As a user, I want to see a list of all my previous chats so that I can easily access my past conversations.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-|  Create Pack  | From packs page or profile page click on the create pack button  | User to be presented with a form to create a pack and upon submission create a pack object | Works as expected |
+|  Chat List  | Click "Chat" in the navigation bar  | Previous chats will be loaded | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/27-testing-user-story-1.png">
-<img src="docs/testing-manual/27-testing-user-story-2.png">
-<img src="docs/testing-manual/27-testing-user-story-3.png">
+<img src="docs/testing/chat-list.png">
 </details>
 
-28. As a user, I can delete my packs so that I can permanently remove packs I do not wish to keep.
+28. As a user, I want to send a message in a selected chat so that I can share my thoughts and information within the conversation.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-|  Delete pack  | Navigate to the pack detail page by clicking on the relevant pack on the pack list, or from a users profile. Click on the 3 dots icon in the top right corner of the pack. Click on the delete button  | User to click the delete button and the pack to be deleted from the database  | Works as expected |
+|  Send Message  | Click the desired chat in chat list, in navigated chat, write the message and press "Send" button below  | A message will be sent  | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/28-testing-user-story-1.png">
-<img src="docs/testing-manual/28-testing-user-story-2.png">
+<img src="docs/testing/chat-list.png">
+<img src="docs/testing/chat.png">
 </details>
 
-29. As a user, I can edit my packs so that I can correct spelling mistakes or I may have entered into the pack information fields.
+29. As a user, I want to delete my own messages so that I can remove any messages sent by mistake or those that are no longer needed.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-|  Edit pack  | Navigate to the pack in questions pack detail page, click on the 3 dots icon located in top right corner and click on the edit button to be taken to the edit task form. Enter relevant values into fields and click on save or cancel to cancel the current edit  | User to click the edit button and the pack edit form to be displayed in which the user can update the packs information  | Works as expected |
+|  Delete Message  | In the chat, click the Trash Bin icon near message to delete that message  | Message will be deleted  | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/29-testing-user-story-1.png">
-<img src="docs/testing-manual/29-testing-user-story-2.png">
-<img src="docs/testing-manual/29-testing-user-story-3.png">
+<img src="docs/testing/messages.png">
 </details>
 
-#### Testing User Stories - Site Owner
-
-30. As the site owner, I would want to validate users' data entries on sign up so that users can create a log in which meets the requirements.
+29. As a logged in user, I can like a post so that I can show my support for the posts that interest me.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-| Input validation   | Navigate to the Tick It site. Click on the log in icon in the nav bar. Enter username and password to the relevant fields.   | User input to be validated again the database and signed in if valid and presented with error messages relevant to the validation failing  | Works as expected |
+|  Like post  | Under the post image, click the Heart button to like / unlike post  | Like / Unlike post  | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/30-testing-user-story-1.png">
+<img src="docs/testing/unlike.png">
+<img src="docs/testing/liked.png">
 </details>
 
-31. As the site owner, I would want to ensure only logged in users can post from their account and edit their profile so that data privacy is ensured. 
+29. As a logged in, user I can like a comment so that I can show my support for the comments that interest me.
 
 | Feature       | Action        | Expected Result  | Actual Result |
 | ------------- | ------------- | -------------    | ------------- |
-| Authentication   | Create code which authenticates if the current user is the owner of items within the site prior to allowing them to edit or delete such items  | Users can only edit or delete tasks and packs they own or their own profile and not others  | Works as expected |
+|  Like post  | Click the Heart icon under to comment to like / unlike  | Like / Unlike comment  | Works as expected |
 
 <details>
 <summary>Screenshots</summary>
-<img src="docs/testing-manual/31-testing-user-story-1.png">
-<img src="docs/testing-manual/31-testing-user-story-2.png">
+<img src="docs/testing/comment-like.png">
 </details>
-
-32. As the site owner, I would want to have the ability to remove tasks and task comments so that I can keep the app clean and friendly. 
-
-| Feature       | Action        | Expected Result  | Actual Result |
-| ------------- | ------------- | -------------    | ------------- |
-|  Delete task  | Access the task objects in the back end API with Djangos admin panel and delete the neccessary tasks  | Admin to have the ability to delete any database task  | Works as expected |
-|  Delete task comment  |  Access the comment objects in the back end API with Djangos admin panel and delete the neccessary comments | Admin to have the ability to delete any database comment  | Works as expected |
-
-<details>
-<summary>Screenshots</summary>
-<img src="docs/testing-manual/32-testing-user-story-1.png">
-<img src="docs/testing-manual/32-testing-user-story-2.png">
-<img src="docs/testing-manual/32-testing-user-story-3.png">
-<img src="docs/testing-manual/32-testing-user-story-4.png">
-<img src="docs/testing-manual/32-testing-user-story-5.png">
-<img src="docs/testing-manual/32-testing-user-story-6.png">
-</details>
-
-33. As the site owner, I would want the site to be fully responsive so that users can use it across multiple devices and create a good user experience.
-
-| Feature       | Action        | Expected Result  | Actual Result |
-| ------------- | ------------- | -------------    | ------------- |
-|  Responsiveness  | Use the site on a range of devices and screen sizes  | Users will have a pleasant and enjoyable experience on the website regardless of their screen or device size  | Works as expected |
-
-<details>
-<summary>Screenshots</summary>
-<img src="docs/testing-manual/33-testing-user-story-1.png">
-<img src="docs/testing-manual/33-testing-user-story-2.png">
-</details>
-
-34. As the site owner, I would want to use the app search function so that I can search for particular tasks by their title.
-
-| Feature       | Action        | Expected Result  | Actual Result |
-| ------------- | ------------- | -------------    | ------------- |
-|  Task search  |When logged in, navigate to the task lists page from the nav bar. Use the search bar at the top of the page to search for tasks based on words, letter or numbers  | User to be able to query the database for specific tasks based on their search criteria | Works as expected |
-
-<details>
-<summary>Screenshots</summary>
-<img src="docs/testing-manual/34-testing-user-story-1.png">
-<img src="docs/testing-manual/34-testing-user-story-2.png">
-</details>
-
-35. As the site owner, I would want a 404 error page so that users do not have to use the back navigation button if an error occurs.
-
-| Feature       | Action        | Expected Result  | Actual Result |
-| ------------- | ------------- | -------------    | ------------- |
-|  Error pages  | Navigate to any page that does not exist  | User to be presented with 404 error page and a button to return home  | Works as expected |
-
-<details>
-<summary>Screenshots</summary>
-<img src="docs/testing-manual/35-testing-user-story-1.png">
-</details>
-
-
 
 
 ## Bugs
 
 | **Bug** | **Fix** |
 | ------- | ------- |
-| Pack not submitting the tasks array to the database | Although the database has been created in such way to accept a list of tasks, it didn't seem to work when passing a list of task id's in the form. Tests were conducted which proved that a single entry could be entered, i decided to try and create a for loop to pass in each task to the pack one a time and this achieved the desired outcome |
-| Task edit form wont submit if due_date is not set a value | Update due_date to be an empty string and a conditional if statement was placed in the form append which checked if due_date was left empty or null and if true it wouldn't append this field. This fixed the issue as the field in the database has blank and null set to True |
-| Profile list only displaying the first 10 results in Infinite Scroll | fetchMoreData was properly implemented  |
-| assigned to tasks wouldn't display in the assigned to tab | A filter was added that would filter tasks based on if the assigned_to id matched that of the profile owners |
-| Tab active colour would revert to the default | Documentation for react bootstrap didn't mention that the CSS has to be over written by using activeClassName property. Once this was used the issue was resolved |
-| Searching for tasks if the single letter Y is entered, tasks with a title that only includes a number will be displayed | I could not work out why this was the case therefore this has had to be left in as a known bug |
-| When editing a pack, the data is not correctly pulled from the database thus resulting in the user having to remove all tasks and re select them | Due to time constraints i was unable to find a solution to this bug so i had to be left as a know bug. This bug still allows functionality although the user experience is slightly impacted due to this |
-| Pack details not displaying list of associated tasks due to 500 error | Due to not having control over the status of elephant SQLs servers I had to leave this as a known bug. I did implement code to retry if a 500 error is returned however sometimes this exceeds the max retry of 3 times. This bug still allows functionality although the user experience is slightly impacted due to having to refresh the page manually in the occasional instances in which this happens |
-
-
-
-
-## Deployment
-
-### Heroku
-
-This project was deployed to [Heroku](https://www.heroku.com) in the project's early stages to allow continual responsive testing. This was achieved via the following steps:
-
-The website was deployed with Heroku by following these steps:
-
-1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be installed in the file.
-2. The app uses Cloudinary to host the post images therefore a Cloudinary account will be required. 
-3. Log in to [Cloudinary](https://cloudinary.com/) or create an account for free.
-4. Navigate to the Dashboard on Cloudinary
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/cloudinary-dashboard.png">
-</details>
-
-5. Copy and store the value of the 'API Environment Variable" beginning at cloudinary:// until the end, this will be used in the Heroku Config Vars. 
-6. The app also uses ElephantSQL to host the database
-7. Log in to [ElephantSQL](https://www.elephantsql.com/) or create an account for free.
-8. Click on Create a new instance
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/elephant-sql-instance.png">
-</details>
-
-9. Set up your plan. Give the 'plan' the desired name, select the Tiny Turtle (free) plan and leave tags blank.
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/elephant-sql-plan.png">
-</details>
-
-10. Select the region and choose the nearest data centre to your location.
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/elephant-sql-region.png">
-</details>
-
-11. Click 'review' and if happy with the details presented click on the create instance button.
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/elephant-sql-create.png">
-</details>
-
-12. From the instances section click on the instance with the name that was just created.
-13. Get the ElephantSQL database URL from the instance details page and copy, this will be used in the Heroku Config Vars
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/elephant-sql-url.png">
-</details>
-
-14. Navigate to https://www.heroku.com/ and login or create an account. 
-15. Click the "new" button in the upper right corner and select "create new app".
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/new-app.png">
-</details>
-
-16. Choose an app name and your region and click "Create app".
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/app-name.png">
-</details>
-
-17. Reveal Config Vars and store the required config var names and values as below:
-
-- `CLOUDINARY_URL`: *your Cloudinary URL as obtained above*
-- `DATABASE_URL`: *your ElephantSQL postgres database URL as obtained above*
-- `PORT`: `8000`
-- `SECRET_KEY`: *your secret key*
-
-<details>
-<summary>Screenshot</summary>
-<img src="docs/deployment/config-vars.png">
-</details>
-
-18. Go to the "deploy" tab and pick GitHub as a deployment method.
-19. Search for a repository to connect to and select the branch you would like to build the app from.
-20. If preferred, enable automatic deploys and then deploy branch.
-21. Wait for the app to build and then click on the "View" link which will redirect you to the deployed link.
-
-### Forking the GitHub Repository
-
-We can make a copy of the original repository on our GitHub account to view or make changes too without affecting the original repository, this is known as forking. Forking in GitHub can be done via the following steps:
-
-1. Navigate to www.github.com and log in.
-2. Once logged in navigate to the desired [GitHub Repository](https://github.com/jkingportfolio/ci_pp5_tick_it_react) that you would like to fork.
-3. At the top right corner of the page click on the fork icon.
-4. There should now be a copy of your original repository in your GitHub account.
-
-Please note if you are not a member of an organisation on GitHub then you will not be able to fork your own repository.
-   
-### Clone a GitHub Repository
-
-You can make a local clone of a repository via the following steps: 
-
-1. Navigate to www.github.com and log in.
-2. Once logged in navigate to the desired [GitHub Repository](https://github.com/jkingportfolio/ci_pp5_tick_it_react) that you would like to clone.
-3. Locate the code button at the top, above the repository file structure.
-4. Select the preferred clone method from HTTPS. SSH or GitHub CLI then click the copy button to copy the URL to your clipboard.
-5. Open Git Bash
-6. Update the current working direction to the location in which you would like the clone directory to be created.
-7. Type `git clone` and paste the previously copied URL at Step 4.
-8. `$ clone https://github.com/jkingportfolio/ci_pp5_tick_it_react`
-9. Now press enter and the local clone will be created at the desired local location
-
+| An error occurs when deleting chat | Not fixed yet, delete message is temporary disabled |
+| Infinite Scroll is getting bugged and keep refreshing when a user try to follow/unfollow someone in "Followers" page | Not fixed, Follow / Unfollow disabled in Followers page  |
+| Creating chat takes too long | Still investigating what causes it |
+| API responses are too slow | Still investigating how to make it faster |
 
 
 ## Credits
 
-### Tutorials
-
-- Real Python Django redirects tutorial - [The Ultimate Guide to Django Redirects](https://realpython.com/django-redirects/)
-- React-multi-select-component video by [Monsterlessons Academy](https://www.youtube.com/@MonsterlessonsAcademy) - [React Select Example | React Dropdown Menu - Fully Customizable](https://www.youtube.com/watch?v=3u_ulMvTYZI)
-
+For the project, Moments walktrough from Code Institute used as base structure.
 
 ### Code
 
- Code from external sources were used as a basis and built on top of in this project, they are credited below:
+- By occuring errors, [Stack Overflow](https://stackoverflow.com/) helped me to investigate problems. Although i couldn't really find an exact answers for my problems, it helped me to understand what may be wrong.
 
- - The basis of this project was inspired by the 'Moments' social media platform walk-through project with Code Institute. Using this a a basis for user log in, profile creation and posting to the API I have built my own app and added extra functionality, such as creating task packs and assigning tasks to users.
-
- - Password criteria tooltip component was inspired by my mentors previous student [aleksandracodes](https://github.com/aleksandracodes). The file for this component can be found [here](https://github.com/aleksandracodes/ci_pp5_snapfood/blob/main/src/components/PasswordCriteria.js).
-
-  - LandingPage component was inspired by my mentors previous student [aleksandracodes](https://github.com/aleksandracodes). The file for this component can be found [here](https://github.com/aleksandracodes/ci_pp5_snapfood/blob/main/src/components/Landing.js).
-
-### Literature
-
-The use of reference books were used throughout the creation of this project and are credited below:
-
-- React Key Concepts - Roy Derks, published by Packt Publishing
-
-### Misc
-
-The source of where I learned how to produce a GitHub fork and clone was from the following pages of the GitHub Documentation. Although I did not use a fork or clone in this project it is something I hope to implement to future projects now I have the knowledge to do so.
-
-- https://docs.github.com/en/get-started/quickstart/fork-a-repo
-- https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
-
-Images such as no results found image used in this site were created by myself using Affinity Designer.
-
-
-## Acknowledgements
-
-I would like to also thank the following:
-- My wife and family for their support and feedback whilst doing this project
-- Code Institute tutor support who helped with the many issues I had during this project.
-- My Code Institute mentor Mo Shami for his guidance through this project.
-
-
-[Back to Top](#tick-it)
