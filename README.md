@@ -998,6 +998,7 @@ The website was tested on the following web browsers:
 | Creating chat takes too long | Still investigating what causes it |
 | API responses are too slow | Still investigating how to make it faster |
 | When post images are too big, they squish. But if i let them keep their size, lighthouse test fails too hard | Still investigating |
+| If a private profile is followed, page must be refresh to see their posts | Still investigating |
 
 
 ## Credits
