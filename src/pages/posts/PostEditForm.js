@@ -29,12 +29,9 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        // console.log(data);
 
         const { title, content, image_url, is_owner } = data;
-        const securedImage = image_url?.replace("http://", "https://")
-        // setSecuredImage(image_url?.replace("http://", "https://"))
-        is_owner ? setPostData({ title, content, securedImage }) : navigate("/");
+        is_owner ? setPostData({ title, content, image_url }) : navigate("/");
       } catch (err) {
         // console.log(err);
       }
