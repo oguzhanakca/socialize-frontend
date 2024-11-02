@@ -997,6 +997,7 @@ The website was tested on the following web browsers:
 | Infinite Scroll is getting bugged and keep refreshing when a user try to follow/unfollow someone in "Followers" page | Not fixed, Follow / Unfollow disabled in Followers page  |
 | Creating chat takes too long | Still investigating what causes it |
 | API responses are too slow | Still investigating how to make it faster |
+| When post images are too big, they squish. But if i let them keep their size, lighthouse test fails too hard | Still investigating |
 
 
 ## Credits
