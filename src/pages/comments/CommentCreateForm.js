@@ -26,8 +26,10 @@ function CommentCreateForm(props) {
 
       setComments((prevComments) => ({
         ...prevComments,
-        results: [{ ...data, like_id: null }, ...(prevComments?.results || [])],
+        results: [{ ...data, like_id: null }, ...prevComments?.results],
       }));
+      console.log("Comment error");
+
       setPost((prevPost) => ({
         results: [
           {
@@ -36,6 +38,8 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      console.log("Post error");
+
       setContent("");
     } catch (err) {
       console.log(err);
