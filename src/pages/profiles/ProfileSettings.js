@@ -28,12 +28,10 @@ const ProfileSettings = () => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (currentUser) {
-      if (currentUser.profile_id.toString() !== id) {
-        navigate("/");
-      }
+    if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
     } else {
+      navigate("/");
     }
   }, [currentUser, navigate, id]);
 
