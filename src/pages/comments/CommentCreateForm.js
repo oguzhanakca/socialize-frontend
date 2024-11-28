@@ -22,11 +22,13 @@ function CommentCreateForm(props) {
         content,
         post,
       });
+      console.log(data);
+
       setComments((prevComments) => ({
         ...prevComments,
         results: [
           { ...data, commentlikes_count: 0, like_id: null },
-          ...prevComments.results,
+          ...(prevComments?.results || []),
         ],
       }));
       setPost((prevPost) => ({
@@ -39,7 +41,7 @@ function CommentCreateForm(props) {
       }));
       setContent("");
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   };
 
