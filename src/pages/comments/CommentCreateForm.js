@@ -28,17 +28,15 @@ function CommentCreateForm(props) {
         ...prevComments,
         results: [{ ...data, like_id: null }, ...prevComments?.results],
       }));
-      console.log("Comment error");
 
-      setPost((prevPost) => ({
-        results: [
-          {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
-          },
-        ],
-      }));
-      console.log("Post error");
+      // setPost((prevPost) => ({
+      //   results: [
+      //     {
+      //       ...prevPost.results[0],
+      //       comments_count: prevPost.results[0].comments_count + 1,
+      //     },
+      //   ],
+      // }));
 
       setContent("");
     } catch (err) {
