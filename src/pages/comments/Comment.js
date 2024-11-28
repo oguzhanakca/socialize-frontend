@@ -31,14 +31,15 @@ const Comment = (props) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`/comments/${id}`);
-      setPost((prevPost) => ({
-        results: [
-          {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count - 1,
-          },
-        ],
-      }));
+      // setPost((prevPost) => ({
+      //   results: [
+      //     {
+      //       ...prevPost.results[0],
+      //       comments_count: prevPost.results[0].comments_count - 1,
+      //     },
+      //   ],
+      // }));
+
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
