@@ -26,10 +26,7 @@ function CommentCreateForm(props) {
 
       setComments((prevComments) => ({
         ...prevComments,
-        results: [
-          { ...data, commentlikes_count: 0, like_id: null },
-          ...(prevComments?.results || []),
-        ],
+        results: [{ ...data, like_id: null }, ...(prevComments?.results || [])],
       }));
       setPost((prevPost) => ({
         results: [
