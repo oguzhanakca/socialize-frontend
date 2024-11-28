@@ -29,6 +29,9 @@ function PostPage() {
           axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost(post);
+        console.log(post);
+        console.log(comments);
+
         setComments(comments);
       } catch (err) {
         // console.log(err);
@@ -71,16 +74,12 @@ function PostPage() {
           ) : currentUser ? (
             <Container className="my-2 px-4 py-2">
               <hr />
-              <p className="ms-2">
-                Nobody commented yet. Be the first one!
-              </p>
+              <p className="ms-2">Nobody commented yet. Be the first one!</p>
             </Container>
           ) : (
             <Container className="my-2 px-4 py-2">
               <hr />
-              <p className="ms-2">
-                Nobody commented yet.
-              </p>
+              <p className="ms-2">Nobody commented yet.</p>
             </Container>
           )}
         </div>
