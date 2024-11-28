@@ -22,8 +22,6 @@ function CommentCreateForm(props) {
         content,
         post,
       });
-      console.log(data);
-
       setComments((prevComments) => ({
         ...prevComments,
         results: [
@@ -31,19 +29,9 @@ function CommentCreateForm(props) {
           ...prevComments?.results,
         ],
       }));
-
-      // setPost((prevPost) => ({
-      //   results: [
-      //     {
-      //       ...prevPost.results[0],
-      //       comments_count: prevPost.results[0].comments_count + 1,
-      //     },
-      //   ],
-      // }));
-
       setContent("");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
