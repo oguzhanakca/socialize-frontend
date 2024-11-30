@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -22,6 +22,8 @@ const SignInForm = () => {
   const { username, password } = signInData;
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
+  const message = location.state?.message;
   const handleChange = (e) => {
     setSignInData({
       ...signInData,
@@ -42,9 +44,11 @@ const SignInForm = () => {
 
   return (
     <Row className={styles.Row}>
+      {}
       <Col md={10} lg={8} className="my-auto mx-auto">
         <Container className="p-4">
           <h1 className={styles.Header}>sign in</h1>
+          {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
               <Form.Control
