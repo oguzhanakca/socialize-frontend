@@ -53,7 +53,9 @@ function PostCreateForm() {
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
-      navigate(`/posts/${data.id}`);
+      navigate(`/posts/${data.id}`, {
+        state: { message: "Your post has been successfully created." },
+      });
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {

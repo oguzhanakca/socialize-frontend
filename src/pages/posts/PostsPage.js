@@ -18,9 +18,10 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState();
   const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
+  const alertMessage = state?.message;
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -47,6 +48,7 @@ function PostsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {message && <Alert variant="success">{message}</Alert>}
         <PopularProfiles mobile />
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />

@@ -30,9 +30,10 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const navigate = useNavigate();
-  const optimizedImageUrl = image_url?.replace("http://", "https://").replace("/upload/", "/upload/f_auto,q_auto/");
+  const optimizedImageUrl = image_url
+    ?.replace("http://", "https://")
+    .replace("/upload/", "/upload/f_auto,q_auto/");
   const secured_profile_image = profile_image?.replace("http://", "https://");
-
 
   const handleEdit = () => {
     navigate(`/posts/${id}/edit`);
@@ -41,7 +42,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`posts/${id}`);
-      navigate(-1);
+      navigate("/", { state: { message: "The post successfully deleted." } });
     } catch (err) {
       // console.log(err);
     }
@@ -116,12 +117,12 @@ const Post = (props) => {
         {content && <Card.Text className={styles.Content}>{content}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
-      <ResponsiveImage
-        webpSrc={optimizedImageUrl}
-        fallbackSrc={optimizedImageUrl}
-        alt={title}
-        style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
-      />
+        <ResponsiveImage
+          webpSrc={optimizedImageUrl}
+          fallbackSrc={optimizedImageUrl}
+          alt={title}
+          style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
+        />
       </Link>
       <div className={styles.PostBar}>
         <span>
