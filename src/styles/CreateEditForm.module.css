@@ -47,6 +47,11 @@
     color: white;
 }
 
+.Button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .Privacy {
     color: black;
 }

@@ -20,7 +20,7 @@ const ProfileEditForm = () => {
   const navigate = useNavigate();
   const imageFile = useRef();
   const [securedImage, setSecuredImage] = useState();
-
+  const [initialData, setInitialData] = useState(null);
 
   const [profileData, setProfileData] = useState({
     bio: "",
@@ -37,7 +37,8 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
           const { bio, image_url, is_private } = data;
-          setSecuredImage(image_url?.replace("http://", "https://"))
+          setInitialData({ bio, image_url, is_private });
+          setSecuredImage(image_url?.replace("http://", "https://"));
           setProfileData({ bio, image_url, is_private });
         } catch (err) {
           // console.log(err);
@@ -50,6 +51,15 @@ const ProfileEditForm = () => {
 
     handleMount();
   }, [currentUser, navigate, id]);
+
+  const hasChanges = () => {
+    if (!initialData) return false;
+    return (
+      bio !== initialData.bio ||
+      image_url !== initialData.image_url ||
+      is_private !== initialData.is_private
+    );
+  };
 
   const handleChange = (e) => {
     setProfileData({
@@ -90,10 +100,11 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_image: data.image_url,
       }));
-      navigate(-1);
+      navigate(`/profiles/${id}`, {
+        state: { message: "Your profile has been updated successfully." },
+      });
     } catch (err) {
       // console.log([...formData]);
-
       // console.log(err.response?.data);
       setErrors(err.response?.data);
     }
@@ -149,7 +160,12 @@ const ProfileEditForm = () => {
       >
         Cancel
       </Button>
-      <Button className={styles.Button} variant="success" type="submit">
+      <Button
+        className={styles.Button}
+        variant="success"
+        type="submit"
+        disabled={!hasChanges()}
+      >
         Save
       </Button>
     </>

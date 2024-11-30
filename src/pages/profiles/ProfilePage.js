@@ -6,7 +6,7 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
@@ -27,6 +27,8 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const message = state?.message;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -169,6 +171,11 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        {message && (
+          <Alert variant="success" className="text-center">
+            {message}
+          </Alert>
+        )}
         <Container>
           {hasLoaded ? (
             <>
