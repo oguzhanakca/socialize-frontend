@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import Alert from "react-bootstrap/Alert";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
