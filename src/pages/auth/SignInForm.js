@@ -48,7 +48,11 @@ const SignInForm = () => {
       <Col md={10} lg={8} className="my-auto mx-auto">
         <Container className="p-4">
           <h1 className={styles.Header}>sign in</h1>
-          {message && <Alert variant="success">{message}</Alert>}
+          {message && (
+            <Alert variant="success" className="text-center">
+              {message}
+            </Alert>
+          )}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
               <Form.Control
