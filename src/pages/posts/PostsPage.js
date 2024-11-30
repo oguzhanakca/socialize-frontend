@@ -14,6 +14,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Alert from "react-bootstrap/Alert";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState();
