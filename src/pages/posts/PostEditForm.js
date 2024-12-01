@@ -86,7 +86,9 @@ function PostEditForm() {
       await axiosReq.put(`/posts/${id}`, formData);
       // console.log(formData);
 
-      navigate(`/posts/${id}`);
+      navigate(`/posts/${id}`, {
+        state: { message: "The post has been edited successfully." },
+      });
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
