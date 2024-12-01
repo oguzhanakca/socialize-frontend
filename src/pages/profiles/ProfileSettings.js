@@ -24,7 +24,6 @@ const ProfileSettings = () => {
     new_password2: "",
   });
   const { new_password1, new_password2 } = userData;
-
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -40,7 +39,9 @@ const ProfileSettings = () => {
     try {
       await axiosRes.put("/dj-rest-auth/user/", { username });
       setCurrentUser((prevUser) => ({ ...prevUser, username }));
-      navigate(-1);
+      navigate("/", {
+        state: { message: "Username has been changed successfully." },
+      });
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -54,7 +55,9 @@ const ProfileSettings = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
-      navigate(-1);
+      navigate("/", {
+        state: { message: "Password has been changed successfully." },
+      });
     } catch (err) {
       setErrors(err.response?.data);
     }

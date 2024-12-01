@@ -13,6 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import styles from "../../styles/Comment.module.css";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 function PostPage() {
   const { id } = useParams();
@@ -20,6 +21,8 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const { state } = useLocation();
+  const message = state?.message;
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -40,6 +43,11 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2 mx-auto" lg={8}>
         <PopularProfiles mobile />
+        {message && (
+          <Alert variant="success" className="mt-3">
+            {message}
+          </Alert>
+        )}
         <Post {...post} setPosts={setPost} postPage />
         <div className={styles.Comment}>
           <hr />

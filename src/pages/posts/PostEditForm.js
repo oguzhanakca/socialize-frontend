@@ -12,13 +12,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
-
   const [postData, setPostData] = useState({
     title: "",
     content: "",
     image_url: "",
   });
   const { title, content, image_url } = postData;
+  const [initialData, setInitialData] = useState(null);
 
   const imageInput = useRef(null);
   const navigate = useNavigate();
@@ -31,7 +31,12 @@ function PostEditForm() {
         const { data } = await axiosReq.get(`/posts/${id}`);
 
         const { title, content, image_url, is_owner } = data;
-        is_owner ? setPostData({ title, content, image_url }) : navigate("/");
+        if (is_owner) {
+          setPostData({ title, content, image_url });
+          setInitialData({ title, content, image_url });
+        } else {
+          navigate("/");
+        }
       } catch (err) {
         // console.log(err);
       }
@@ -39,6 +44,15 @@ function PostEditForm() {
 
     handleMount();
   }, [navigate, id]);
+
+  const hasChanges = () => {
+    if (!initialData) return false;
+    return (
+      title !== initialData.title ||
+      content !== initialData.content ||
+      image_url !== initialData.image_url
+    );
+  };
 
   const handleChange = (event) => {
     setPostData({
@@ -121,7 +135,12 @@ function PostEditForm() {
       >
         Cancel
       </Button>
-      <Button className={styles.Button} variant="success" type="submit">
+      <Button
+        className={styles.Button}
+        variant="success"
+        type="submit"
+        disabled={!hasChanges()}
+      >
         Edit
       </Button>
     </div>
