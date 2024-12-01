@@ -16,7 +16,7 @@
 3. [Technical Design](#technical-design)
    1. [Agile Design](#agile-design)
    2. [CRUD Functionality](#crud-functionality)
-   3. [Colurs](#colours)
+   3. [Colours](#colours)
    4. [Fonts](#fonts)
    5. [Wireframes](#wireframes)
 4. [Technologies Used](#technologies-used)
