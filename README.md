@@ -167,7 +167,7 @@ Balsamiq was used to create wireframes of the sites pages
 
 - [Axios](https://axios-http.com/docs/intro)
 - [React](https://create-react-app.dev/docs/getting-started)
-- [React-Bootstrap 1.6.3](https://react-bootstrap.netlify.app/docs/components/accordion/)
+- [React-Bootstrap](https://react-bootstrap.netlify.app/)
 - [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
 - [React Router](https://reactrouter.com/en/main)
 - [Am I Responsive](http://ami.responsivedesign.is/)
