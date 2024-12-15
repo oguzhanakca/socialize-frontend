@@ -56,7 +56,7 @@ const Post = (props) => {
 
         return {
           ...prevPosts,
-          results: prevPosts.results.map((post) => {
+          results: prevPosts.map((post) => {
             return post.id === id
               ? {
                   ...post,
@@ -79,7 +79,7 @@ const Post = (props) => {
         console.log(prevPosts);
         return {
           ...prevPosts,
-          results: prevPosts.results.map((post) => {
+          results: prevPosts.map((post) => {
             return post.id === id
               ? {
                   ...post,
