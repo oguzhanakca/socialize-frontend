@@ -35,7 +35,8 @@
    1. [Browser Compatibility](#browser-compatibility)
    2. [Manual Testing](#manual-testing)
 9. [Bugs](#bugs)
-10. [Credits](#credits)
+10. [Deployment](#deployment)
+11. [Credits](#credits)
 
 ## About
 
@@ -182,6 +183,63 @@ Balsamiq was used to create wireframes of the sites pages
 - [ESLint](https://eslint.org/)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
 - [Wave](https://wave.webaim.org/)
+
+### React
+
+The React.js framework is an open-source JavaScript framework and library developed by Jordan Walke, a software engineer at Meta. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript
+
+I used React for this application for several reasons:
+
+- Flexibility – Due to having a modular structure React code is easier to maintain compared to other front-end frameworks.
+
+- Speed – Creating sites/apps with React significantly increases the page loading speed as the entire page does not require to refresh and reload all components. Components are updated dynamically thus reducing the wait and load times, which affects user experience.
+
+- React Bootstrap - When used for styling and responsiveness React Bootstrap is a great choice as it comes with ready-to-use React built components thus taking away alot of need to create commonly used code from scratch.
+
+- Reusability of components – Components can be created and re used throughout the app with no need to re write code for the same features.
+
+There were various components created and reused across this application.
+
+- Asset - Reusable component. Used to show a spinner until the request is completed. Also used for the information messages.
+- Avatar - Reusable component. Used to show profile image of the requested user.
+- MoreDropdown - Reusable component. Used to show dropdown menu for comments and posts.
+- NavBar - Reusable component. Used for easy navigation of the site. Shows in every page.
+- ResponsiveImage - Reusable component. Used to convert image type for the images requested from cloudinary.
+- CurrentUserContext - Reusable context. Used to manage current user's authentication state.
+- ProfileDataContext - Reusable context. Used to manage user profile data and stores popular profiles and follow actions.
+- useClickOutsideToggle - Used to close dropdown of NavBar.
+- useRedirect - Used to redirect users when they logged in or logged out.
+
+There are various pages created in this application.
+
+- auth
+  - SignInForm - Handles sign in form.
+  - SignUpForm - Handles sign up form.
+- chats
+  - ChatDetail - Shows the desired chat page between users.
+  - ChatItem - Returns the avatars of the users who has chat history.
+  - ChatList - Lists all the chat current user have.
+  - Message - Shows avatar and message of the owner.
+- comments
+  - Comment - Returns the comments.
+  - CommentCreateForm - Handles the create comment form.
+  - CommentEditForm - Handles the edit comment form.
+- error
+  - NotFound - Shows when users try to navigate a page that does not exist.
+- followers
+  FollowersPage - Displays the followers and followings of the profile.
+- posts
+  - Post - Returns the information of post.
+  - PostCreateForm - Handles the post create form.
+  - PostEditForm - Handles the post edit form.
+  - PostPage - Displays information of one selected post and its comments.
+  - PostsPage - Homepage. Displays the posts of the users.
+- profiles
+  - PopularProfiles - Returns most followed profiles.
+  - Profile - Returns the profile of user.
+  - ProfileEditForm - Handles the profile edit form.
+  - ProfilePage - Displays the profile of users with their posts.
+  - ProfileSettings - Handles username and password forms for the profile owners.
 
 ## Features
 
@@ -991,6 +1049,68 @@ The website was tested on the following web browsers:
 | When post images are too big, they squish. But if i let them keep their size, lighthouse test fails too hard         | Still investigating                                     |
 | If a private profile is followed, page must be refresh to see their posts                                            | Still investigating                                     |
 | Error occured when deleting and posting comments                                                                     | Fixed                                                   |
+
+## Deployment
+
+The application was deployed to [Heroku](https://heroku.com). A live version of the application can be found at [Socialize](https://socialize-frontend-app-cfe4edcc8238.herokuapp.com/).
+
+Please follow these steps to deploy the application:
+
+1. Deploy your own version of the [Socialize Backend](https://github.com/oguzhanakca/socialize-backend) by following the [deployment instructions for the Socialize Backend](https://github.com/oguzhanakca/socialize-backend?tab=readme-ov-file#deployment).
+
+2. Clone or fork this repository. For forking it, go to https://github.com/oguzhanakca/socialize-frontend, click on `Fork` and follow the instructions. For cloning the repository, run `git clone https://github.com/oguzhanakca/socialize-frontend.git` in your terminal.
+
+   <details>
+
+   <summary>Show image</summary>
+
+   ![Clone or fork repository](docs/deployment/deployment-1.png)
+
+   </hr>
+
+3. Go to the repository folder and edit the file `src/api/axiosDefaults.js`. In the file, change the value of `axios.defaults.baseURL` to the URL of your deployed API. You can find the URL by clicking on your API app from the Heroku dashboard and then copying the URL from the `Open app` button.
+
+4. If you haven't done so yet, login to your Heroku account at https://heroku.com. Now start a new app from the [Heroku dashboard](https://dashboard.heroku.com) by clicking on `New` and then on `Create new app`.
+
+   <details>
+
+   <summary>Show image</summary>
+
+   ![Create Heroku app](docs/deployment/deployment-2.png)
+
+   </details>
+
+5. Give your app an available name and choose your region (US or Europe).
+
+6. Click on the _Deploy_ tab and connect the Heroku app to your GitHub repository.
+
+   <details>
+
+   <summary>Show image</summary>
+
+   ![Connect Heroku app to GitHub repository](docs/deployment/deployment-3.png)
+
+   </details>
+
+7. Scroll down and select the branch you want to deploy in the _Manual deploy_ section. Now click on `Deploy Branch` for the first deployment of the application.
+
+   <details>
+
+   <summary>Show image</summary>
+
+   ![Deploy branch](docs/deployment/deployment-4.png)
+
+   </details>
+
+8. After successful deployment, click on `View` to open your deployed app.
+
+   <details>
+
+   <summary>Show image</summary>
+
+   ![Open app](docs/deployment/deployment-5.png)
+
+   </details>
 
 ## Credits
 
