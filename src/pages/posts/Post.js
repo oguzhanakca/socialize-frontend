@@ -52,7 +52,10 @@ const Post = (props) => {
     try {
       const { data } = await axiosRes.post("/postlikes/", { post: id });
       if (postPage) {
-        postlikes_count++;
+        setPosts((prevPosts) => ({
+          ...prevPosts,
+          postlikes_count: postlikes_count + 1,
+        }));
       } else {
         setPosts((prevPosts) => {
           console.log(prevPosts);
@@ -80,7 +83,10 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/postlikes/${like_id}`);
       if (postPage) {
-        postlikes_count--;
+        setPosts((prevPosts) => ({
+          ...prevPosts,
+          postlikes_count: postlikes_count - 1,
+        }));
       } else {
         setPosts((prevPosts) => {
           console.log(prevPosts);
