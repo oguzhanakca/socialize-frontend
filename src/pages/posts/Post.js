@@ -55,6 +55,7 @@ const Post = (props) => {
         setPosts((prevPosts) => ({
           ...prevPosts,
           postlikes_count: postlikes_count + 1,
+          like_id: data.id,
         }));
       } else {
         setPosts((prevPosts) => {
@@ -86,6 +87,7 @@ const Post = (props) => {
         setPosts((prevPosts) => ({
           ...prevPosts,
           postlikes_count: postlikes_count - 1,
+          like_id: null,
         }));
       } else {
         setPosts((prevPosts) => {
