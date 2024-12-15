@@ -59,7 +59,7 @@ const Post = (props) => {
         }));
       } else {
         setPosts((prevPosts) => {
-          console.log(prevPosts);
+          // console.log(prevPosts);
 
           return {
             ...prevPosts,
@@ -91,7 +91,7 @@ const Post = (props) => {
         }));
       } else {
         setPosts((prevPosts) => {
-          console.log(prevPosts);
+          // console.log(prevPosts);
           return {
             ...prevPosts,
             results: prevPosts.results.map((post) => {
